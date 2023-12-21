@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: ASUS
+  com.example.doan_ck.entity.User: ASUS
   Date: 08/12/2023
   Time: 22:46
   To change this template use File | Settings | File Templates.
@@ -19,6 +19,8 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Link Swiper's CSS -->
     <link
             rel="stylesheet"
@@ -43,7 +45,7 @@
                             <i class="fa-solid fa-sort-down"></i>
                         </span>
                     </a>
-                    <ul class="drop-down"  id="mobileDropdown">
+                    <ul class="drop-down" id="mobileDropdown">
                         <li><a href="product-list.html">Xem tất cả sản phẩm</a></li>
                         <li><a href="duchefa.html">DUCHEFA HÀ LAN</a></li>
                         <li><a href="bosf.html">BOSF TRUNG QUỐC</a></li>
@@ -75,32 +77,22 @@
 <section id="loginForm">
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form action="signup" method="post">
                 <h1>Đăng ký</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <button>Đăng ký</button>
+                <input name="user" type="text" placeholder="Username">
+                <input name="pass" type="password" placeholder="Password">
+                <input name="repass" type="password" placeholder="Repeat Password">
+                <button type="submit">Đăng ký</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form action="login" name="frm-login" method="post">
                 <h1>Đăng nhập</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
+                <p class="text-danger text-center">${mess}</p>
+                <input name="user" type="text" placeholder="Username">
+                <input name="pass" type="password" placeholder="Password">
                 <a href="fogot.html">Quên mật khẩu?</a>
-                <button>Đăng nhập</button>
+                <button type="submit">Đăng nhập</button>
             </form>
         </div>
         <div class="toggle-container">

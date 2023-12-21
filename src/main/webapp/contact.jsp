@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: ASUS
+  com.example.doan_ck.entity.User: ASUS
   Date: 08/12/2023
   Time: 22:48
   To change this template use File | Settings | File Templates.
