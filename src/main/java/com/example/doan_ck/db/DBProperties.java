@@ -33,4 +33,8 @@ public class DBProperties {
     public static String getDbName() {
         return prop.get("db.databaseName").toString();
     }
+
+    public static void main(String[] args) {
+        System.out.println(DBProperties.getDbHost());
+    }
 }

@@ -1,11 +1,12 @@
 package com.example.doan_ck.db;
 
-
-
+import com.example.doan_ck.entity.User;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.jdbi.v3.core.Jdbi;
 
 import java.sql.SQLException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class JDBIConnector {
     private static Jdbi jdbi;
@@ -33,5 +34,14 @@ public class JDBIConnector {
             makeConnect();
         }
         return jdbi;
+    }
+
+    public static void main(String[] args) {
+        List<User> users = JDBIConnector.get().withHandle(handle -> {
+            return handle.createQuery("select * from users").mapToBean(User.class)
+                    .stream().collect(Collectors.toList());
+        });
+
+        System.out.println(users);
     }
 }

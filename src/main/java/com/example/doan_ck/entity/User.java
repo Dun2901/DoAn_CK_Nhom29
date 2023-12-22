@@ -4,12 +4,21 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     private int id;
-    private String user;
-    private String pass;
+    private String username;
+    private String password;
     private int isSell;
     private int isAdmin;
 
-    public User(int anInt, String string, String rsString, int rsInt, int i) {}
+    public User() {
+    }
+
+    public User(int id, String username, String password, int isSell, int isAdmin) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.isSell = isSell;
+        this.isAdmin = isAdmin;
+    }
 
     public int getId() {
         return id;
@@ -19,20 +28,20 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getIsSell() {
@@ -55,8 +64,8 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", user='" + user + '\'' +
-                ", pass='" + pass + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", isSell=" + isSell +
                 ", isAdmin=" + isAdmin +
                 '}';
