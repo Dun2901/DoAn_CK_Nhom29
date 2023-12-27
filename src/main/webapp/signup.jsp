@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  com.example.doan_ck.modal.User: ASUS
-  Date: 08/12/2023
-  Time: 22:46
+  User: ASUS
+  Date: 27/12/2023
+  Time: 10:28
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,7 +10,6 @@
     String error = (String) request.getAttribute("error");
 %>
 <html>
-<!DOCTYPE html>
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -33,10 +32,9 @@
             href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <!--    Link css-->
     <link rel="stylesheet" href="./assets/css/style.css"/>
-    <title>Login Page</title>
+    <title>Đăng ký</title>
 </head>
 <body>
-
 <nav class="nav">
     <div class="container nav_container">
         <div class="nav_left">
@@ -76,8 +74,7 @@
 </nav>
 
 <section id="page_header">
-    <h2>Đăng nhập</h2>
-    <p>Vui lòng đăng nhập để truy cập tài khoản của bạn và tận hưởng những ưu đãi độc quyền!</p>
+    <h2>Đăng ký</h2>
 </section>
 
 <!-- Login 13 - Bootstrap Brain Component -->
@@ -92,8 +89,8 @@
                                 <img src="./assets/img/user.png" alt="BootstrapBrain Logo" class="object-fit-cover">
                             </a>
                         </div>
-                        <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Sign in to your account</h2>
-                        <form action="login" method="post">
+                        <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Sign up to your account</h2>
+                        <form action="signup" method="post">
                             <%
                                 if (error != null) {
                             %>
@@ -106,34 +103,32 @@
                             <div class="row gy-2 overflow-hidden">
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="username" id="username" value="<%= request.getParameter("username")!=null ? request.getParameter("username") : ""%>" placeholder="Username" required>
+                                        <input type="text" class="form-control" name="username" id="username"
+                                               value="<%= request.getParameter("username")!=null ? request.getParameter("username") : ""%>" placeholder="Username" required>
                                         <label for="username" class="form-label">Username</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
+                                        <input type="password" class="form-control" name="password" id="password"
+                                               placeholder="Password" required>
                                         <label for="password" class="form-label">Password</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="d-flex gap-2 justify-content-between">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" name="rememberMe" id="rememberMe">
-                                            <label class="form-check-label text-secondary" for="rememberMe">
-                                                Keep me logged in
-                                            </label>
-                                        </div>
-                                        <a href="#!" class="link-primary text-decoration-none">Forgot password?</a>
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" name="repass" id="repass"
+                                               placeholder="Repeat your password" required>
+                                        <label for="repass" class="form-label">Repeat your password</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="d-grid my-3">
-                                        <button class="btn btn-primary btn-lg" type="submit">Log in</button>
+                                        <button class="btn btn-primary btn-lg" type="submit">Sign Up</button>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <p class="m-0 text-secondary text-center">Don't have an account? <a href="signup.jsp" class="link-primary text-decoration-none">Sign up</a></p>
+                                    <a href="login.jsp" class="link-primary text-decoration-none">Back to Login</a>
                                 </div>
                             </div>
                         </form>
@@ -143,62 +138,6 @@
         </div>
     </div>
 </section>
-
-<%--<section id="loginForm">--%>
-<%--    <div class="container" id="container">--%>
-<%--        <div class="form-container sign-up">--%>
-<%--            <form action="signup" method="post">--%>
-<%--                <h1>Đăng ký</h1>--%>
-<%--                <%--%>
-<%--                    if (error1 != null) {--%>
-<%--                %>--%>
-<%--                <div class="alert alert-danger" role="alert">--%>
-<%--                    <%= error1 %>--%>
-<%--                </div>--%>
-<%--                <%--%>
-<%--                    }--%>
-<%--                %>--%>
-<%--                <input name="user" type="text" placeholder="Username">--%>
-<%--                <input name="pass" type="password" placeholder="Password">--%>
-<%--                <input name="repass" type="password" placeholder="Repeat Password">--%>
-<%--                <button type="submit">Đăng ký</button>--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--        <div class="form-container sign-in">--%>
-<%--            <form action="login" method="post">--%>
-<%--                <h1>Đăng nhập</h1>--%>
-<%--                <%--%>
-<%--                    if (error != null) {--%>
-<%--                %>--%>
-<%--                <div class="alert alert-danger" role="alert">--%>
-<%--                    <%= error %>--%>
-<%--                </div>--%>
-<%--                <%--%>
-<%--                    }--%>
-<%--                %>--%>
-<%--                <input name="username" type="text" value="<%= request.getParameter("username")!=null ? request.getParameter("username") : ""%>" placeholder="Username">--%>
-<%--                <input name="password" type="password"  placeholder="Password">--%>
-<%--                <a href="fogot.html">Quên mật khẩu?</a>--%>
-<%--                <button type="submit">Đăng nhập</button>--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--        <div class="toggle-container">--%>
-<%--            <div class="toggle">--%>
-<%--                <div class="toggle-panel toggle-left">--%>
-<%--                    <h1>Chào mừng đã quay trở lại!</h1>--%>
-<%--                    <p>Nhập thông tin cá nhân của bạn để sử dụng tất cả các tính năng trang web</p>--%>
-<%--                    <button class="hidden" id="login">Đăng nhập</button>--%>
-<%--                </div>--%>
-<%--                <div class="toggle-panel toggle-right">--%>
-<%--                    <h1>Xin chào, bạn!</h1>--%>
-<%--                    <p>Đăng ký với thông tin cá nhân của bạn để sử dụng tất cả các tính năng trang web.</p>--%>
-<%--                    <button class="hidden" id="register">Đăng ký</button>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</section>--%>
-
 
 <section class="footer">
     <footer class="top">

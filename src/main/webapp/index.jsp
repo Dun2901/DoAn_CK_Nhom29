@@ -1,4 +1,4 @@
-<%@ page import="com.example.doan_ck.entity.User" %>
+<%@ page import="com.example.doan_ck.modal.User" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>

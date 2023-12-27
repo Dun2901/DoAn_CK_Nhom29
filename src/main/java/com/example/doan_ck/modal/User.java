@@ -1,4 +1,4 @@
-package com.example.doan_ck.entity;
+package com.example.doan_ck.modal;
 
 import java.io.Serializable;
 

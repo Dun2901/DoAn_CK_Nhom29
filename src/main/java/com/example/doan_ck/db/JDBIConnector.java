@@ -1,6 +1,6 @@
 package com.example.doan_ck.db;
 
-import com.example.doan_ck.entity.User;
+import com.example.doan_ck.modal.User;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.jdbi.v3.core.Jdbi;
 
