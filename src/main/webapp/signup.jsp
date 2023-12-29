@@ -110,6 +110,13 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" name="email" id="email"
+                                               value="<%= request.getParameter("email")!=null ? request.getParameter("email") : ""%>" placeholder="Email" required>
+                                        <label for="email" class="form-label">Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
                                         <input type="password" class="form-control" name="password" id="password"
                                                placeholder="Password" required>
                                         <label for="password" class="form-label">Password</label>
@@ -128,7 +135,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <a href="login.jsp" class="link-primary text-decoration-none">Back to Login</a>
+                                    <a href="login.jsp" class="link-primary text-decoration-none">Quay lại</a>
                                 </div>
                             </div>
                         </form>

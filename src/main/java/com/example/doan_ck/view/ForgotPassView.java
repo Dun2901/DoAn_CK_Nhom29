@@ -8,11 +8,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "LoginView", value = "/log-in")
-public class LoginView extends HttpServlet {
+@WebServlet(name = "ForgotPassView", value = "/forgot-pass")
+public class ForgotPassView extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request,response);
+        request.getRequestDispatcher("forgot-password.jsp").forward(request,response);
     }
 
     @Override

@@ -48,29 +48,58 @@ public class UserService {
         return false;
     }
 
+    // Check email exist
+    public boolean checkEmailExist(String email) {
+        List<User> accounts = JDBIConnector.get().withHandle(h ->
+                h.createQuery("SELECT email FROM users WHERE email = ?")
+                        .bind(0, email)
+                        .mapToBean(User.class)
+                        .stream()
+                        .collect(Collectors.toList())
+        );
+        for (int i = 0; i < accounts.size(); i++) {
+            User acc = accounts.get(i);
+            if (acc.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Register a new account
-    public void register(String username, String password) {
+    public void register(String username, String password, String email) {
         JDBIConnector.get().withHandle(handle ->
-                handle.createUpdate("INSERT INTO users (username, password) VALUES (?, ?)")
+                handle.createUpdate("INSERT INTO users (username, password, email) VALUES (?, ?, ?)")
                         .bind(0, username)
                         .bind(1, password)
+                        .bind(2, email)
                         .execute()
         );
     }
 
-    // Encrypt password
-//    public String hashPassword(String password) {
-//        String salt = "aspkmhtvtu#pgjliu7zlqfcy";
-//        String result = null;
-//        password += salt;
-//
-//        try {
-//            byte[] dataBytes = password.getBytes("UTF-8");
-//            MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
-//            result = Base64.getEncoder().encodeToString(sha256.digest(dataBytes));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return result;
-//    }
+    // Update a new password
+    public void updatePassword(String email, String newPassword) {
+        JDBIConnector.get().withHandle(handle ->
+                handle.createUpdate("UPDATE users SET password = ? WHERE email = ?")
+                        .bind(0, newPassword)
+                        .bind(1, email)
+                        .execute()
+        );
+    }
+
+//     Encrypt password
+    public String hashPassword(String password) {
+        String salt = "aspkmhtvtu#pgjliu7zlqfcy";
+        String result = null;
+        password += salt;
+
+        try {
+            byte[] dataBytes = password.getBytes("UTF-8");
+            MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
+            result = Base64.getEncoder().encodeToString(sha256.digest(dataBytes));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

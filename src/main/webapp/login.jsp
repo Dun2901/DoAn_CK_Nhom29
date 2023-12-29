@@ -124,7 +124,7 @@
                                                 Keep me logged in
                                             </label>
                                         </div>
-                                        <a href="#!" class="link-primary text-decoration-none">Forgot password?</a>
+                                        <a href="forgot-password.jsp" class="link-primary text-decoration-none">Forgot password?</a>
                                     </div>
                                 </div>
                                 <div class="col-12">

@@ -14,6 +14,7 @@ public class Signup extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
         String rePass = request.getParameter("repass");
 
@@ -23,8 +24,10 @@ public class Signup extends HttpServlet {
             request.getRequestDispatcher("signup.jsp").forward(request, response);
         }else {
             boolean accountExist = UserService.getInstances().checkAccountExist(username);
-            if (!accountExist) {
-                UserService.getInstances().register(username, password);
+            boolean emailExist = UserService.getInstances().checkEmailExist(email);
+            if (!accountExist && !emailExist) {
+                password = UserService.getInstances().hashPassword(password);
+                UserService.getInstances().register(username, password, email);
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }else {
                 request.setAttribute("error", "Tài khoản đã tồn tại!");

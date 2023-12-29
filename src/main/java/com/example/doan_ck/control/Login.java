@@ -11,13 +11,13 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet(name = "LoginControl", urlPatterns = "/login")
-public class LoginControl extends HttpServlet {
+@WebServlet(name = "Login", urlPatterns = "/login")
+public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-//        password = UserService.getInstances().hashPassword(password);
+        password = UserService.getInstances().hashPassword(password);
         User user = UserService.getInstances().checkLogin(username, password);
 
         HttpSession session = request.getSession();
@@ -29,8 +29,6 @@ public class LoginControl extends HttpServlet {
             session.setAttribute("auth", user);
             response.sendRedirect("index.jsp");
         }
-
-
     }
 
     @Override
