@@ -92,7 +92,7 @@
                                 <img src="./assets/img/user.png" alt="BootstrapBrain Logo" class="object-fit-cover">
                             </a>
                         </div>
-                        <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Sign in to your account</h2>
+                        <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Đăng nhập</h2>
                         <form action="login" method="post">
                             <%
                                 if (error != null) {
@@ -106,34 +106,31 @@
                             <div class="row gy-2 overflow-hidden">
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="username" id="username" value="<%= request.getParameter("username")!=null ? request.getParameter("username") : ""%>" placeholder="Username" required>
+                                        <input type="text" class="form-control" name="username" id="username"
+                                               value="<%= request.getParameter("username")!=null ? request.getParameter("username") : ""%>"
+                                               placeholder="Username" required>
                                         <label for="username" class="form-label">Username</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
+                                        <input type="password" class="form-control" name="password" id="password"
+                                               value="" placeholder="Password" required>
                                         <label for="password" class="form-label">Password</label>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="d-flex gap-2 justify-content-between">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" name="rememberMe" id="rememberMe">
-                                            <label class="form-check-label text-secondary" for="rememberMe">
-                                                Keep me logged in
-                                            </label>
-                                        </div>
-                                        <a href="forgot-password.jsp" class="link-primary text-decoration-none">Forgot password?</a>
-                                    </div>
+                                <div class="col-12 d-flex justify-content-between">
+                                    <a href="forgot-username" class="link-primary text-decoration-none">Quên tên đăng nhập?</a>
+                                    <a href="forgot-pass" class="link-primary text-decoration-none">Quên mật khẩu?</a>
                                 </div>
                                 <div class="col-12">
                                     <div class="d-grid my-3">
-                                        <button class="btn btn-primary btn-lg" type="submit">Log in</button>
+                                        <button class="btn btn-primary btn-lg" type="submit">Đăng nhập</button>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <p class="m-0 text-secondary text-center">Don't have an account? <a href="signup.jsp" class="link-primary text-decoration-none">Sign up</a></p>
+                                    <p class="m-0 text-secondary text-center">Bạn chưa có tài khoản? <a href="sign-up"
+                                                                                                        class="link-primary text-decoration-none">Đăng ký</a></p>
                                 </div>
                             </div>
                         </form>
@@ -143,62 +140,6 @@
         </div>
     </div>
 </section>
-
-<%--<section id="loginForm">--%>
-<%--    <div class="container" id="container">--%>
-<%--        <div class="form-container sign-up">--%>
-<%--            <form action="signup" method="post">--%>
-<%--                <h1>Đăng ký</h1>--%>
-<%--                <%--%>
-<%--                    if (error1 != null) {--%>
-<%--                %>--%>
-<%--                <div class="alert alert-danger" role="alert">--%>
-<%--                    <%= error1 %>--%>
-<%--                </div>--%>
-<%--                <%--%>
-<%--                    }--%>
-<%--                %>--%>
-<%--                <input name="user" type="text" placeholder="Username">--%>
-<%--                <input name="pass" type="password" placeholder="Password">--%>
-<%--                <input name="repass" type="password" placeholder="Repeat Password">--%>
-<%--                <button type="submit">Đăng ký</button>--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--        <div class="form-container sign-in">--%>
-<%--            <form action="login" method="post">--%>
-<%--                <h1>Đăng nhập</h1>--%>
-<%--                <%--%>
-<%--                    if (error != null) {--%>
-<%--                %>--%>
-<%--                <div class="alert alert-danger" role="alert">--%>
-<%--                    <%= error %>--%>
-<%--                </div>--%>
-<%--                <%--%>
-<%--                    }--%>
-<%--                %>--%>
-<%--                <input name="username" type="text" value="<%= request.getParameter("username")!=null ? request.getParameter("username") : ""%>" placeholder="Username">--%>
-<%--                <input name="password" type="password"  placeholder="Password">--%>
-<%--                <a href="fogot.html">Quên mật khẩu?</a>--%>
-<%--                <button type="submit">Đăng nhập</button>--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--        <div class="toggle-container">--%>
-<%--            <div class="toggle">--%>
-<%--                <div class="toggle-panel toggle-left">--%>
-<%--                    <h1>Chào mừng đã quay trở lại!</h1>--%>
-<%--                    <p>Nhập thông tin cá nhân của bạn để sử dụng tất cả các tính năng trang web</p>--%>
-<%--                    <button class="hidden" id="login">Đăng nhập</button>--%>
-<%--                </div>--%>
-<%--                <div class="toggle-panel toggle-right">--%>
-<%--                    <h1>Xin chào, bạn!</h1>--%>
-<%--                    <p>Đăng ký với thông tin cá nhân của bạn để sử dụng tất cả các tính năng trang web.</p>--%>
-<%--                    <button class="hidden" id="register">Đăng ký</button>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</section>--%>
-
 
 <section class="footer">
     <footer class="top">

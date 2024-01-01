@@ -21,17 +21,17 @@ public class Signup extends HttpServlet {
 
         if (!password.equals(rePass)) {
             request.setAttribute("error", "Mật khẩu xác nhận không đúng!");
-            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            request.getRequestDispatcher("sign-up").forward(request, response);
         }else {
             boolean accountExist = UserService.getInstances().checkAccountExist(username);
             boolean emailExist = UserService.getInstances().checkEmailExist(email);
             if (!accountExist && !emailExist) {
                 password = UserService.getInstances().hashPassword(password);
                 UserService.getInstances().register(username, password, email);
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                request.getRequestDispatcher("log-in").forward(request, response);
             }else {
                 request.setAttribute("error", "Tài khoản đã tồn tại!");
-                request.getRequestDispatcher("signup.jsp").forward(request, response);
+                request.getRequestDispatcher("sign-up").forward(request, response);
             }
         }
 //        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}

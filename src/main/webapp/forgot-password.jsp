@@ -86,34 +86,9 @@
     </div>
 </section>
 
-
-<%--<div id="forgot_pass" class="section">--%>
-<%--    <div class="container">--%>
-<%--        <!-- row -->--%>
-<%--        <div class="row">--%>
-<%--            <div class="col-md-12">--%>
-<%--                <div class="forgot_pwd">--%>
-<%--                    <p class="heading">Phục hồi mật khẩu</p>--%>
-<%--                    <p class="note">Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.</p>--%>
-<%--                    <form action="forgot-password" method="post">--%>
-<%--&lt;%&ndash;                        &lt;%&ndash;%>--%>
-<%--&lt;%&ndash;                            if (error != null) {&ndash;%&gt;--%>
-<%--&lt;%&ndash;                        %>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                        <div class="alert" role="alert" style="color: #ff0000; margin-bottom: -15px">&ndash;%&gt;--%>
-<%--&lt;%&ndash;                            <%= error %>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                        </div>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                        &lt;%&ndash;%>--%>
-<%--&lt;%&ndash;                            }&ndash;%&gt;--%>
-<%--&lt;%&ndash;                        %>&ndash;%&gt;--%>
-<%--                        <input class="input" name="email" type="email" placeholder="Nhập email của bạn" required>--%>
-<%--                        <input class="submit-btn" type="submit" value="Lấy lại mật khẩu">--%>
-<%--                    </form>--%>
-<%--                    <a href="log-in">Quay lại</a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <!-- /row -->--%>
-<%--    </div>--%>
-<!-- /container -->
+<%--bootstrap--%>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 </html>

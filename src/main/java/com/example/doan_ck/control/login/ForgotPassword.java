@@ -35,7 +35,6 @@ public class ForgotPassword extends HttpServlet {
                     + "Please enter OTP code to verify!";
 
             MailService.sendMail(email, subject, content);
-            request.setAttribute("message", "Mã OTP đã được gửi đến email của bạn");
             session.setAttribute("otp", otpValue);
             session.setAttribute("email", email);
             response.sendRedirect("enter-OTP");

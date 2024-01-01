@@ -1,12 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
-  Date: 28/12/2023
-  Time: 23:57
+  Date: 01/01/2024
+  Time: 14:42
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    String error = (String) request.getAttribute("error");
     String message = (String) request.getAttribute("message");
 %>
 <html>
@@ -30,18 +31,9 @@
     <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-    <title>Quên mật khẩu</title>
-
-    <style>
-        li {
-            display: inline-block;
-            list-style-type: none;
-        }
-
-        li span {
-            display: block;
-        }
-    </style>
+    <!--    Link css-->
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <title>Quên tên đăng nhập</title>
 </head>
 <body>
 
@@ -56,35 +48,46 @@
                                 <img src="./assets/img/user.png" alt="BootstrapBrain Logo" class="object-fit-cover">
                             </a>
                         </div>
-                        <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Nhập mã OTP</h2>
-                        <form action="validateOTP" method="post">
+                        <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Nhập email để chúng tôi gửi tên đăng
+                            nhập của bạn</h2>
+                        <form action="ForgotUsername" method="post">
+                            <%
+                                if (error != null) {
+                            %>
+                            <div class="alert alert-danger" role="alert">
+                                <%= error %>
+                            </div>
+                            <%
+                                }
+                            %>
+
                             <%
                                 if (message != null) {
                             %>
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-success" role="alert">
                                 <%= message %>
                             </div>
                             <%
                                 }
                             %>
+
                             <div class="row gy-2 overflow-hidden">
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="otp" id="otp"
-                                               value="<%= request.getParameter("otp")!=null ? request.getParameter("otp") : ""%>" placeholder="OTP" required>
-                                        <label for="otp" class="form-label">OTP</label>
+                                        <input type="text" class="form-control" name="email" id="email"
+                                               value="<%= request.getParameter("email")!=null ? request.getParameter("email") : ""%>"
+                                               placeholder="Email" required>
+                                        <label for="email" class="form-label">Email</label>
                                     </div>
-                                </div>
-                                <div class="col-12 text-center"><a href="forgot-pass"
-                                                       class="link-primary text-decoration-none">Gửi lại mã?</a>
                                 </div>
                                 <div class="col-12">
                                     <div class="d-grid my-3">
-                                        <button class="btn btn-primary btn-lg" type="submit">Lấy lại mật khẩu</button>
+                                        <button class="btn btn-primary btn-lg" type="submit">Lấy lại tên đăng nhập
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <a href="forgot-pass" class="link-primary text-decoration-none">Quay lại</a>
+                                    <a href="log-in" class="link-primary text-decoration-none">Quay lại</a>
                                 </div>
                             </div>
                         </form>

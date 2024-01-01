@@ -66,6 +66,19 @@ public class UserService {
         return false;
     }
 
+    // get username by email
+    public String getUsernameByEmail(String email) {
+        List<String> usernames = JDBIConnector.get().withHandle(h ->
+                h.createQuery("SELECT username FROM users WHERE email = ?")
+                        .bind(0, email)
+                        .mapTo(String.class)
+                        .list()
+        );
+
+        return usernames.isEmpty() ? null : usernames.get(0);
+    }
+
+
     // Register a new account
     public void register(String username, String password, String email) {
         JDBIConnector.get().withHandle(handle ->
