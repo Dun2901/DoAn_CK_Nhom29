@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String message = (String) request.getAttribute("message");
+    String error = (String) request.getAttribute("error");
 %>
 <html>
 <head>
@@ -59,9 +60,19 @@
                         <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Nhập mã OTP</h2>
                         <form action="validateOTP" method="post">
                             <%
-                                if (message != null) {
+                                if (error != null) {
                             %>
                             <div class="alert alert-danger" role="alert">
+                                <%= error %>
+                            </div>
+                            <%
+                                }
+                            %>
+
+                            <%
+                                if (message != null) {
+                            %>
+                            <div class="alert alert-success" role="alert">
                                 <%= message %>
                             </div>
                             <%

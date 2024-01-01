@@ -61,15 +61,15 @@
                                 }
                             %>
 
-                            <%
-                                if (message != null) {
-                            %>
-                            <div class="alert alert-success" role="alert">
-                                <%= message %>
-                            </div>
-                            <%
-                                }
-                            %>
+<%--                            <%--%>
+<%--                                if (message != null) {--%>
+<%--                            %>--%>
+<%--                            <div class="alert alert-success" role="alert">--%>
+<%--                                <%= message %>--%>
+<%--                            </div>--%>
+<%--                            <%--%>
+<%--                                }--%>
+<%--                            %>--%>
 
                             <div class="row gy-2 overflow-hidden">
                                 <div class="col-12">

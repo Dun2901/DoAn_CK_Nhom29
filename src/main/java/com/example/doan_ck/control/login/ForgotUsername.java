@@ -26,8 +26,7 @@ public class ForgotUsername extends HttpServlet {
                     + "Username:" + " " + username;
 
             MailService.sendMail(email, subject, content);
-            request.setAttribute("message", "Username đã được gửi đến địa chỉ email của bạn.");
-            request.getRequestDispatcher("forgot-username").forward(request, response);
+            request.getRequestDispatcher("log-in").forward(request, response);
         } else {
             request.setAttribute("error", "Không tìm thấy thông tin cho địa chỉ email đã nhập.");
             request.getRequestDispatcher("forgot-username").forward(request, response);
