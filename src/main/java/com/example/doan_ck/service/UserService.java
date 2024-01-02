@@ -80,12 +80,13 @@ public class UserService {
 
 
     // Register a new account
-    public void register(String username, String password, String email) {
+    public void register(String id, String username, String password, String email) {
         JDBIConnector.get().withHandle(handle ->
-                handle.createUpdate("INSERT INTO users (username, password, email) VALUES (?, ?, ?)")
-                        .bind(0, username)
-                        .bind(1, password)
-                        .bind(2, email)
+                handle.createUpdate("INSERT INTO users (id, username, password, email) VALUES (?, ?, ?, ?)")
+                        .bind(0, id)
+                        .bind(1, username)
+                        .bind(2, password)
+                        .bind(3, email)
                         .execute()
         );
     }
@@ -98,6 +99,20 @@ public class UserService {
                         .bind(1, email)
                         .execute()
         );
+    }
+
+    // Get new id
+    public int getNewID() {
+        List<User> users = JDBIConnector.get().withHandle(handle ->
+                handle.createQuery("SELECT * FROM users order by id DESC Limit 1")
+                        .mapToBean(User.class)
+                        .stream()
+                        .collect(Collectors.toList())
+        );
+        for (int i = 0; i < users.size(); i++) {
+            return users.get(i).getId();
+        }
+        return 0;
     }
 
 //     Encrypt password

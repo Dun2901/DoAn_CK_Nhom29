@@ -7,19 +7,17 @@ public class User implements Serializable {
     private String username;
     private String email;
     private String password;
-    private int isSell;
-    private int isAdmin;
+    private int role;
 
     public User() {
     }
 
-    public User(int id, String username, String email, String password, int isSell, int isAdmin) {
+    public User(int id, String username, String email, String password, int role) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.isSell = isSell;
-        this.isAdmin = isAdmin;
+        this.role = role;
     }
 
     public int getId() {
@@ -54,20 +52,15 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public int getIsSell() {
-        return isSell;
+    public int getRole() {
+        return role;
     }
 
-    public void setIsSell(int isSell) {
-        this.isSell = isSell;
+    public void setRole(int role) {
+        this.role = role;
     }
-
-    public int getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(int isAdmin) {
-        this.isAdmin = isAdmin;
+    public boolean checkRole(int role) {
+        return this.role >= role;
     }
 
     @Override
@@ -77,8 +70,7 @@ public class User implements Serializable {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", isSell=" + isSell +
-                ", isAdmin=" + isAdmin +
+                ", role=" + role +
                 '}';
     }
 }

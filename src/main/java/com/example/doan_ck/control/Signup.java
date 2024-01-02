@@ -1,5 +1,7 @@
 package com.example.doan_ck.control;
 
+import com.example.doan_ck.modal.Log;
+import com.example.doan_ck.service.LogService;
 import com.example.doan_ck.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,6 +19,7 @@ public class Signup extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String rePass = request.getParameter("repass");
+        int log_id = LogService.getInstances().getNewID() + 1;
 
 
         if (!password.equals(rePass)) {
@@ -27,9 +30,12 @@ public class Signup extends HttpServlet {
             boolean emailExist = UserService.getInstances().checkEmailExist(email);
             if (!accountExist && !emailExist) {
                 password = UserService.getInstances().hashPassword(password);
-                UserService.getInstances().register(username, password, email);
+                String id = "" + (UserService.getInstances().getNewID() + 1);
+                UserService.getInstances().register(id, username, password, email);
+                LogService.getInstances().addLog(log_id, Log.INFO, Integer.parseInt(id),"Signup success","id= "+id+" username= "+username);
                 request.getRequestDispatcher("log-in").forward(request, response);
             }else {
+                LogService.getInstances().addLog(log_id, Log.ALERT, 0,"Signup wrong","email= " +email + " username= "+username);
                 request.setAttribute("error", "Tài khoản đã tồn tại!");
                 request.getRequestDispatcher("sign-up").forward(request, response);
             }
