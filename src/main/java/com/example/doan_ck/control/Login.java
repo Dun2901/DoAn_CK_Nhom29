@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
             if (user.checkRole(3)) {
                 response.sendRedirect("admin/statistic");
             } else {
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("home.jsp");
             }
             session.setAttribute("loginAttempts", 0);
         }

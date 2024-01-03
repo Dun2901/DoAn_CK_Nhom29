@@ -1,36 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
-  Date: 01/01/2024
-  Time: 14:23
+  Date: 03/01/2024
+  Time: 17:22
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <%--    Link bootstrap--%>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!--    Link icons-->
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- Link Swiper's CSS -->
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-    <title>Nội dung không tồn tại</title>
-</head>
-<body>
-
 <nav class="nav">
     <div class="container nav_container">
         <div class="nav_left">
@@ -68,32 +43,3 @@
         </div>
     </div>
 </nav>
-
-<div class="page-contain page-404">
-
-    <div id="main-content" class="main-content">
-        <div class="container">
-
-            <div class="row">
-
-                <div class="content-404" style="text-align: center;">
-                    <h1 class="heading">404</h1>
-                    <h2 class="title">Oops! Trang không tồn tại!</h2>
-                    <p>Chúng tôi không thể tìm thấy trang mà bạn đang tìm kiếm</p>
-                    <a class="button" href="home.jsp">Về trang chủ</a>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<%--bootstrap--%>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
-</html>
