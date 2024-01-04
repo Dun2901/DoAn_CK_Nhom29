@@ -1,4 +1,4 @@
-package com.example.doan_ck.control.login;
+package com.example.doan_ck.controller.login;
 
 import com.example.doan_ck.service.UserService;
 import jakarta.servlet.ServletException;

@@ -1,4 +1,4 @@
-package com.example.doan_ck.control;
+package com.example.doan_ck.controller;
 
 import com.example.doan_ck.modal.Log;
 import com.example.doan_ck.modal.User;
@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
             if (user.checkRole(3)) {
                 response.sendRedirect("admin/statistic");
             } else {
-                response.sendRedirect("home.jsp");
+                response.sendRedirect("index.jsp");
             }
             session.setAttribute("loginAttempts", 0);
         }

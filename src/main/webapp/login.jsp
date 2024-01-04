@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.doan_ck.modal.User" %><%--
   Created by IntelliJ IDEA.
   com.example.doan_ck.modal.User: ASUS
   Date: 08/12/2023
@@ -8,6 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String error = (String) request.getAttribute("error");
+%>
+<%
+    User auth = (User) request.getSession().getAttribute("auth");
+    if (auth != null) response.sendRedirect("index.jsp");
 %>
 <html>
 <!DOCTYPE html>

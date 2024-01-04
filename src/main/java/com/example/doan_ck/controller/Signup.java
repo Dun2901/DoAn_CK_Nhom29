@@ -1,4 +1,4 @@
-package com.example.doan_ck.control;
+package com.example.doan_ck.controller;
 
 import com.example.doan_ck.modal.Log;
 import com.example.doan_ck.service.LogService;

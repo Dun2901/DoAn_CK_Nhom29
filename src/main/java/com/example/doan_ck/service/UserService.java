@@ -115,6 +115,16 @@ public class UserService {
         return 0;
     }
 
+    // Get all user
+    public  List<User> listALlUser(){
+        List<User> lu = JDBIConnector.get().withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM users")
+                    .mapToBean(User.class)
+                    .stream().collect(Collectors.toList());
+        });
+        return lu;
+    }
+
 //     Encrypt password
     public String hashPassword(String password) {
         String salt = "aspkmhtvtu#pgjliu7zlqfcy";

@@ -1,4 +1,4 @@
-package com.example.doan_ck.control.login;
+package com.example.doan_ck.view;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,15 +8,15 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "EnterOTP", value = "/enter-OTP")
-public class EnterOTP extends HttpServlet {
+@WebServlet(name = "PageNotFound", value = "/page-not-found")
+public class PageNotFound extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("enterOTP.jsp").forward(request,response);
+        request.getRequestDispatcher("404.jsp").forward(request,response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        doGet(request,response);
     }
 }
