@@ -69,6 +69,13 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" name="name" id="fid-name"
+                                               value="<%= request.getParameter("name")!=null ? request.getParameter("name") : ""%>" placeholder="Họ và tên" required>
+                                        <label for="fid-name" class="form-label">Họ và tên</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
                                         <input type="email" class="form-control" name="email" id="email"
                                                value="<%= request.getParameter("email")!=null ? request.getParameter("email") : ""%>" placeholder="Email" required>
                                         <label for="email" class="form-label">Email</label>

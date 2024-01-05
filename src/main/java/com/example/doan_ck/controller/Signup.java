@@ -15,6 +15,7 @@ import java.io.IOException;
 public class Signup extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -31,7 +32,7 @@ public class Signup extends HttpServlet {
             if (!accountExist && !emailExist) {
                 password = UserService.getInstances().hashPassword(password);
                 String id = "" + (UserService.getInstances().getNewID() + 1);
-                UserService.getInstances().register(id, username, password, email);
+                UserService.getInstances().register(id, name, username, password, email);
                 LogService.getInstances().addLog(log_id, Log.INFO, Integer.parseInt(id),"Signup success","id= "+id+" username= "+username);
                 request.getRequestDispatcher("log-in").forward(request, response);
             }else {

@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String fullName = (String) request.getAttribute("fullName");
+%>
 <html>
 <head>
     <meta charset="UTF-8"/>
@@ -31,22 +34,109 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"/>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <!-- User avatar and basic info -->
+            <div class="card">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="User Avatar">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <% if (fullName != null) { %>
+                        <%= fullName %>
+                        <% } %>
+                    </h5>
+                    <p class="card-text">Online Shopper</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <!-- User details with a form for editing -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <form action="update-profile" method="post">
+                        <h5 class="card-title">Personal Information</h5>
 
-<section id="page_header">
-    <h2>#Hãy_nói_chuyện</h2>
-    <p>ĐỂ LẠI MỘT TIN NHẮN, Chúng tôi rất vui được nghe từ bạn</p>
-</section>
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   value="${sessionScope.auth.email}" disabled required>
+                        </div>
+
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName"
+                                   value="<%=request.getAttribute("fullName")%>" required>
+                        </div>
+
+                        <!-- Save changes button -->
+                        <button type="submit" class="btn btn-success" id="saveChangesBtn">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- User orders -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">My Orders</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>Order #001</strong>
+                            <p>Product: Laptop XYZ</p>
+                            <p>Status: Shipped</p>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Order #002</strong>
+                            <p>Product: Smartphone ABC</p>
+                            <p>Status: Delivered</p>
+                        </li>
+                        <!-- Add more order details as needed -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Change password form -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Change Password</h5>
+                    <form action="ChangePasswordServlet" method="post">
+                        <div class="mb-3">
+                            <label for="currentPassword" class="form-label">Current Password</label>
+                            <input type="password" class="form-control" id="currentPassword" name="currentPassword"
+                                   required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                                   required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Change Password</button>
+                    </form>
+                </div>
+            </div>
 
 
+            <!-- Logout and Back to Home buttons -->
+            <div class="card">
+                <div class="card-body">
+                    <button type="button" class="btn btn-danger mr-2">Logout</button>
+                    <a href="index.jsp" class="btn btn-primary">Back to Home</a>
+                </div>
+            </div>
 
-    <%--bootstrap--%>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-    <!--Link JS-->
-    <script src="./assets/js/index.js"></script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<%--bootstrap--%>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 </html>

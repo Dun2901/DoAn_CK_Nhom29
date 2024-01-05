@@ -80,13 +80,14 @@ public class UserService {
 
 
     // Register a new account
-    public void register(String id, String username, String password, String email) {
+    public void register(String id, String fullName, String username, String password, String email) {
         JDBIConnector.get().withHandle(handle ->
-                handle.createUpdate("INSERT INTO users (id, username, password, email) VALUES (?, ?, ?, ?)")
+                handle.createUpdate("INSERT INTO users (id, full_name, username, password, email) VALUES (?, ?, ?, ?, ?)")
                         .bind(0, id)
-                        .bind(1, username)
-                        .bind(2, password)
-                        .bind(3, email)
+                        .bind(1, fullName)
+                        .bind(2, username)
+                        .bind(3, password)
+                        .bind(4, email)
                         .execute()
         );
     }
@@ -96,6 +97,16 @@ public class UserService {
         JDBIConnector.get().withHandle(handle ->
                 handle.createUpdate("UPDATE users SET password = ? WHERE email = ?")
                         .bind(0, newPassword)
+                        .bind(1, email)
+                        .execute()
+        );
+    }
+
+    // Update user information
+    public void updateUserInfo(String email, String fullName ) {
+        JDBIConnector.get().withHandle(handle ->
+                handle.createUpdate("UPDATE users SET full_name = ? WHERE email = ?")
+                        .bind(0, fullName)
                         .bind(1, email)
                         .execute()
         );
