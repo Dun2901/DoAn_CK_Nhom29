@@ -78,6 +78,19 @@ public class UserService {
         return usernames.isEmpty() ? null : usernames.get(0);
     }
 
+    // get fullName by email
+    public String getFullNameByEmail(String email) {
+        List<String> fullNames = JDBIConnector.get().withHandle(h ->
+                h.createQuery("SELECT full_name FROM users WHERE email = ?")
+                        .bind(0, email)
+                        .mapTo(String.class)
+                        .list()
+        );
+
+        return fullNames.isEmpty() ? null : fullNames.get(0);
+    }
+
+
 
     // Register a new account
     public void register(String id, String fullName, String username, String password, String email) {

@@ -7,8 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String fullName = (String) request.getAttribute("fullName");
+    String fullName = (String) request.getSession().getAttribute("fullName");
+    String error = (String) request.getAttribute("error");
 %>
+
 <html>
 <head>
     <meta charset="UTF-8"/>
@@ -68,7 +70,7 @@
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Full Name</label>
                             <input type="text" class="form-control" id="fullName" name="fullName"
-                                   value="<%=request.getAttribute("fullName")%>" required>
+                                   value="${empty sessionScope.fullName ? '' : sessionScope.fullName}" required>
                         </div>
 
                         <!-- Save changes button -->
@@ -100,19 +102,28 @@
             <!-- Change password form -->
             <div class="card mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Change Password</h5>
-                    <form action="ChangePasswordServlet" method="post">
+                    <h5 class="card-title">Đổi mật khẩu</h5>
+                    <form action="update-password" method="post">
+                        <%
+                            if (error != null) {
+                        %>
+                        <div class="alert alert-danger" role="alert">
+                            <%= error %>
+                        </div>
+                        <%
+                            }
+                        %>
                         <div class="mb-3">
-                            <label for="currentPassword" class="form-label">Current Password</label>
+                            <label for="currentPassword" class="form-label">Mật khẩu hiện tại</label>
                             <input type="password" class="form-control" id="currentPassword" name="currentPassword"
                                    required>
                         </div>
                         <div class="mb-3">
-                            <label for="newPassword" class="form-label">New Password</label>
+                            <label for="newPassword" class="form-label">Mật khẩu mới</label>
                             <input type="password" class="form-control" id="newPassword" name="newPassword" required>
                         </div>
                         <div class="mb-3">
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <label for="confirmPassword" class="form-label">Xác lại mật khẩu</label>
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
                                    required>
                         </div>

@@ -14,24 +14,36 @@ import java.io.IOException;
 @WebServlet(name = "UpdateProfile", value = "/update-profile")
 public class UpdateProfile extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String fullName = request.getParameter("fullName");
-        HttpSession session = request.getSession(true);
-        User email = (User) session.getAttribute("auth");
-
-        // Remove leading and trailing whitespaces
-        fullName = fullName.trim();
-
-        // You need to set the attribute in the request
-        request.setAttribute("fullName", fullName);
-
-
-        UserService.getInstances().updateUserInfo(email.getEmail(), fullName);
-        request.getRequestDispatcher("my-profile").forward(request, response);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        // Kiểm tra người dùng đã đăng nhập hay chưa
+        HttpSession session = request.getSession();
+        User authenticatedUser = (User) session.getAttribute("auth");
+
+        if (authenticatedUser == null) {
+            // Người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
+            response.sendRedirect("login"); // Thay đổi URL đến trang đăng nhập của bạn
+            return;
+        }
+
+        // Lấy thông tin từ form
+        String fullName = request.getParameter("fullName");
+
+        // Kiểm tra xem fullName có giá trị hợp lệ hay không
+        if (fullName == null || fullName.trim().isEmpty()) {
+            // Xử lý lỗi, chuyển hướng đến trang cập nhật với thông báo lỗi
+            response.sendRedirect("update-profile?error=invalidName");
+            return;
+        }
+
+        // Cập nhật thông tin vào CSDL
+        UserService userService = UserService.getInstances();
+        userService.updateUserInfo(authenticatedUser.getEmail(), fullName);
+
+        // Cập nhật giá trị trong session
+        session.setAttribute("fullName", fullName);
+
+        // Chuyển hướng sau khi cập nhật thành công
+        response.sendRedirect("my-profile");
     }
+
 }

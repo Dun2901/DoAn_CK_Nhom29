@@ -39,10 +39,11 @@ public class Login extends HttpServlet {
             LogService.getInstances().addLog(log_id, Log.WARNING, 0, "login false", "Username= " + username);
             request.setAttribute("error", "Tên đăng nhập hoặc mật khẩu không đúng!");
             request.getRequestDispatcher("log-in").forward(request, response);
-//            request.setAttribute("error", "Tên đăng nhập hoặc mật khẩu không đúng!");
-//            request.getRequestDispatcher("log-in").forward(request, response);
         } else {
             session.setAttribute("auth", user);
+            // Lấy fullName từ CSDL và lưu vào session
+            String fullName = UserService.getInstances().getFullNameByEmail(user.getEmail());
+            session.setAttribute("fullName", fullName);
             LogService.getInstances().addLog(log_id, Log.INFO, user.getId(), "login success", "Username= " + username);
             if (user.checkRole(3)) {
                 response.sendRedirect("admin/statistic");

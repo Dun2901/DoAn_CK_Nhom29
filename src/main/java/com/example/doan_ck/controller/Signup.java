@@ -31,6 +31,7 @@ public class Signup extends HttpServlet {
             boolean emailExist = UserService.getInstances().checkEmailExist(email);
             if (!accountExist && !emailExist) {
                 password = UserService.getInstances().hashPassword(password);
+                request.getSession().setAttribute("fullName", name);
                 String id = "" + (UserService.getInstances().getNewID() + 1);
                 UserService.getInstances().register(id, name, username, password, email);
                 LogService.getInstances().addLog(log_id, Log.INFO, Integer.parseInt(id),"Signup success","id= "+id+" username= "+username);
