@@ -136,7 +136,7 @@
             <!-- Logout and Back to Home buttons -->
             <div class="card">
                 <div class="card-body">
-                    <button type="button" class="btn btn-danger mr-2">Logout</button>
+                    <a href="logout" class="btn btn-danger mr-2">Logout</a>
                     <a href="index.jsp" class="btn btn-primary">Back to Home</a>
                 </div>
             </div>
