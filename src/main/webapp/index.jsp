@@ -116,7 +116,7 @@
 <section class="section">
     <div class="container selling_container">
         <div class="selling_item">
-            <h2 class="selling_h2">Mua sắm</h2>
+            <h2 class="selling_h2">Sản phẩm nổi bật</h2>
             <p class="selling_p">
                 Sản phẩm của chúng tôi bao gồm các tiêu chuẩn phân tích chính xác, hóa chất tinh khiết và dung môi đảm
                 bảo đáp ứng các yêu cầu khắt khe nhất trong lĩnh vực nghiên cứu.
