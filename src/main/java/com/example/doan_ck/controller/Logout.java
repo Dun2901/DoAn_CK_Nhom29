@@ -24,7 +24,7 @@ public class Logout extends HttpServlet {
 
         session.removeAttribute("auth");
 
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("home");
     }
 
     @Override

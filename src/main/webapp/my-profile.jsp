@@ -137,7 +137,7 @@
             <div class="card">
                 <div class="card-body">
                     <a href="logout" class="btn btn-danger mr-2">Logout</a>
-                    <a href="index.jsp" class="btn btn-primary">Back to Home</a>
+                    <a href="home.jsp" class="btn btn-primary">Back to Home</a>
                 </div>
             </div>
 

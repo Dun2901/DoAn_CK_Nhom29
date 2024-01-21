@@ -11,7 +11,7 @@
 %>
 <%
     User auth = (User) request.getSession().getAttribute("auth");
-    if (auth != null) response.sendRedirect("index.jsp");
+    if (auth != null) response.sendRedirect("home.jsp");
 %>
 <html>
 <!DOCTYPE html>

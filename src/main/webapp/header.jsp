@@ -18,7 +18,7 @@
             <a href="#" class="nav_logo">CHEMICAL</a>
             <ul class="nav_list open">
                 <li class="nav_item">
-                    <a href="index.jsp" class="nav_link active">Trang chủ</a>
+                    <a href="home.jsp" class="nav_link active">Trang chủ</a>
                 </li>
                 <li class="nav_item services">
                     <a href="#" class="nav_link">Sản phẩm

@@ -37,7 +37,7 @@
             <a href="#" class="nav_logo">CHEMICAL</a>
             <ul class="nav_list open">
                 <li class="nav_item">
-                    <a href="index.jsp" class="nav_link active">Trang chủ</a>
+                    <a href="home.jsp" class="nav_link active">Trang chủ</a>
                 </li>
                 <li class="nav_item services">
                     <a href="#" class="nav_link">Sản phẩm
@@ -80,7 +80,7 @@
                     <h1 class="heading">404</h1>
                     <h2 class="title">Oops! Trang không tồn tại!</h2>
                     <p>Chúng tôi không thể tìm thấy trang mà bạn đang tìm kiếm</p>
-                    <a class="button" href="index.jsp">Về trang chủ</a>
+                    <a class="button" href="home.jsp">Về trang chủ</a>
                 </div>
 
             </div>

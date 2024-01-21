@@ -1,4 +1,6 @@
 <%@ page import="com.example.doan_ck.modal.User" %>
+<%@ page import="com.example.doan_ck.modal.Product" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -123,8 +125,16 @@
             </p>
             <a href="product-list.html" class="selling_btn">Xem thêm &rarr;</a>
         </div>
+        <%
+            List<Product> listTop = (List<Product>) request.getAttribute("listTop");
+
+            if (listTop != null && !listTop.isEmpty()) {
+                for (Product p : listTop) {
+        %>
         <div class="selling_item">
-            <img src="https://hoachatthinghiem.org/wp-content/uploads/2023/09/Gum-acacia-powder-Gum-arabic-Himedia-Cas-9000-01-5.jpg"
+
+
+            <img src="<%=p.getImage().get(0)%>"
                  alt="" class="selling_item_img"/>
             <div class="des">
                 <div class="star">
@@ -138,6 +148,17 @@
             <p class="selling_item_title">Gum acacia powder</p>
             <p class="selling_item_price">450.000₫</p>
         </div>
+        <%
+            }
+        } else {
+            // Display a message or handle the case when the list is empty
+        %>
+        <div class="no-data-message">
+            No data available at the moment.
+        </div>
+        <%
+            }
+        %>
         <div class="selling_item">
             <img src="https://hoachatthinghiem.org/wp-content/uploads/2023/03/Soya-peptone-Himedia-510x510.jpg" alt=""
                  class="selling_item_img"/>
