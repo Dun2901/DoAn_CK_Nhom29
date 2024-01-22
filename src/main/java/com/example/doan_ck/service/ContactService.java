@@ -2,30 +2,21 @@ package com.example.doan_ck.service;
 
 import com.example.doan_ck.controller.Contact;
 import com.example.doan_ck.db.JDBIConnector;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-@WebServlet(name = "ContactService", value = "/ContactService")
-public class ContactService extends HttpServlet {
-
+public class ContactService {
     public static ContactService getIntances(){
         return new ContactService();
     }
 
     // them contact
-    public void insertContact(int id, String full_name, String email, String comment) {
+    public void insertContact(int id, String full_Name,  String email,  String comment) {
         JDBIConnector.get().withHandle(handle ->
                 handle.createUpdate("INSERT INTO contacts values (?, ?, ?, ?, now())")
                         .bind(0, id)
-                        .bind(1, full_name)
+                        .bind(1, full_Name)
                         .bind(2, email)
                         .bind(3, comment)
                         .execute()
@@ -34,26 +25,38 @@ public class ContactService extends HttpServlet {
     }
 
     //tao id moi
-    public int  getNewID(){
-        List<Contact> contacts = (List<Contact>) JDBIConnector.get().withHandle(handle ->
-                handle.createQuery("SELECT * FROM contacts ORDER BY ID DESC LIMIT 1")
+    public int getNewID(){
+        List<Contact> contacts = JDBIConnector.get().withHandle(handle ->
+                handle.createQuery("SELECT * FROM contacts ORDER BY id DESC LIMIT 1")
                         .mapToBean(Contact.class)
                         .stream()
                         .collect(Collectors.toList())
-                );
-        if()
+        );
+        for (int i = 0; i < contacts.size(); i++) {
+            return contacts.get(i).getid();
+        }
+
+        return 0;
 
     }
 
-
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    // Delete contact
+    public void delete(String id) {
+        JDBIConnector.get().withHandle(handle ->
+                handle.createUpdate("DELETE FROM contacts WHERE contactID = ?")
+                        .bind(0, id)
+                        .execute()
+        );
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    // Select all contact
+    public List<Contact> selectAll() {
+        List<Contact> contacts = JDBIConnector.get().withHandle(handle ->
+                handle.createQuery("SELECT * FROM contacts")
+                        .mapToBean(Contact.class)
+                        .stream()
+                        .collect(Collectors.toList())
+        );
+        return contacts;
     }
 }
