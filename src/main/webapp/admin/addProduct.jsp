@@ -94,7 +94,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
-                                                    <label label class="col-form-label col-md-3 col-sm-3 label-align">Hãng Sản Xuất:</label>
+                                                    <labelgit class="col-form-label col-md-3 col-sm-3 label-align">Hãng Sản Xuất:</labelgit>
                                                     <div class="col-md-9 col-sm-9 ">
                                                         <select class="col-form-label col-md-3 col-sm-3 form-control" tabindex="0" name="id_cate">
                                                             <option>DUCHEFA HÀ LAN</option>
