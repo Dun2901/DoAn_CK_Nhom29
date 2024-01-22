@@ -27,14 +27,14 @@
                         </span>
                     </a>
                     <ul class="drop-down" id="mobileDropdown">
-                        <li><a href="product-list.html">Xem tất cả sản phẩm</a></li>
-                        <li><a href="duchefa.html">DUCHEFA HÀ LAN</a></li>
-                        <li><a href="bosf.html">BOSF TRUNG QUỐC</a></li>
-                        <li><a href="merck.html">MERCK ĐỨC</a></li>
-                        <li><a href="wako.html">WAKO NHẬT BẢN</a></li>
-                        <li><a href="acros.html">ACROS ORGANICS</a></li>
-                        <li><a href="biobasic.html">BIOBASIC CANADA</a></li>
-                        <li><a href="himedia.html">HIMEDIA LABS</a></li>
+                        <li><a href="list-product">Xem tất cả sản phẩm</a></li>
+                        <li><a href="list-product?idVendor=007">DUCHEFA HÀ LAN</a></li>
+                        <li><a href="list-product?idVendor=002">BOSF TRUNG QUỐC</a></li>
+                        <li><a href="list-product?idVendor=003">MERCK ĐỨC</a></li>
+                        <li><a href="list-product?idVendor=004">WAKO NHẬT BẢN</a></li>
+                        <li><a href="list-product?idVendor=005">ACROS ORGANICS</a></li>
+                        <li><a href="list-product?idVendor=006">BIOBASIC CANADA</a></li>
+                        <li><a href="list-product?idVendor=001">HIMEDIA LABS</a></li>
                     </ul>
                 </li>
                 <li class="nav_item">
