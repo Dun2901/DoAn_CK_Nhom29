@@ -23,7 +23,7 @@ public class ListProduct extends HttpServlet {
         if (idVendor == null) {
             list = pro.getAllProducts();
         } else {
-
+            list = pro.getProductByVendor_ID(idVendor);
         }
 
 

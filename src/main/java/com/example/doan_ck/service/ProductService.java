@@ -69,6 +69,35 @@ public class ProductService {
         return products;
     }
 
+    public List<Product> getProductByVendor_ID (String id){
+        List<Product> pro = JDBIConnector.get().withHandle(handle -> {
+            return handle.createQuery("SELECT\n" +
+                            "    p.productID,\n" +
+                            "    p.cat_id,\n" +
+                            "    p.name,\n" +
+                            "    p.description,\n" +
+                            "    p.vendor_id,\n" +
+                            "    p.status AS product_status,\n" +
+                            "    p.deleteAt,\n" +
+                            "    i.url AS image_url,\n" +
+                            "    pr.in_price,\n" +
+                            "    pr.out_price,\n" +
+                            "    pr.quanity,\n" +
+                            "    pr.import_date\n" +
+                            "FROM\n" +
+                            "    products p\n" +
+                            "INNER JOIN\n" +
+                            "    images i ON p.productID = i.product_id\n" +
+                            "LEFT JOIN\n" +
+                            "    prices pr ON p.productID = pr.product_id\n" +
+                            "WHERE\n" +
+                            "    p.vendor_id = ?")
+                    .bind(0, id)
+                    .mapToBean(Product.class).stream().collect(Collectors.toList());
+        });
+        return pro;
+    }
+
     public static void main(String[] args) {
         ProductService pro = new ProductService();
         List<Product> list = pro.getAllProducts();
