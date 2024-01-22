@@ -1,7 +1,7 @@
 package com.example.doan_ck.service;
 
-import com.example.doan_ck.controller.Contact;
 import com.example.doan_ck.db.JDBIConnector;
+import com.example.doan_ck.modal.Contact;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,6 +21,9 @@ public class ContactService {
                         .bind(3, comment)
                         .execute()
         );
+    }
+
+    public static void main(String[] args) {
 
     }
 
@@ -33,11 +36,9 @@ public class ContactService {
                         .collect(Collectors.toList())
         );
         for (int i = 0; i < contacts.size(); i++) {
-            return contacts.get(i).getid();
+            return contacts.get(i).getId();
         }
-
         return 0;
-
     }
 
     // Delete contact

@@ -25,24 +25,18 @@ public class Contact extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getCharacterEncoding();
         String full_name = request.getParameter("full_name");
         String email = request.getParameter("email");
         String comment = request.getParameter("comment");
 
+        int id = ContactService.getIntances().getNewID()+1;
         int logID = LogService.getInstances().getNewID() + 1;
-        int id = ContactService.getIntances().getNewID() + 1;
         ContactService.getIntances().insertContact(id, full_name, email, comment);
         HttpSession session = request.getSession(true);
         User user = (User) session.getAttribute("auth");
         LogService.getInstances().addLog(logID, Log.INFO, (user == null ? 0 : user.getId()),
                 nameLog, "id = " + id + " | full_name =" + full_name  + " | email = " + email + " | comment = " + comment);
 
-        response.sendRedirect("home");
-    }
-
-
-    public int getid() {
-        return 0;
+        response.sendRedirect("home.jsp");
     }
 }

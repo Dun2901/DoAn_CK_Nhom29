@@ -195,22 +195,22 @@
     <div class="container">
         <div class="section_header">
             <h2 class="section_h2">Các loại sản phẩm</h2>
-            <p class="section_p">Find what you are looking for</p>
+            <p class="section_p">Tìm thấy những gì bạn đang tìm kiếmr</p>
         </div>
     </div>
     <div class="categories">
         <div class="container cat_container">
             <div class="category">
                 <img src="./assets/img/3.avif" alt="" class="category_img"/>
-                <p class="category_title">Botanical Chemistry</p>
+                <p class="category_title">Hóa thực vật</p>
             </div>
             <div class="category category_center">
                 <img src="./assets/img/2.avif" alt="" class="category_img"/>
-                <p class="category_title">Organic Compounds</p>
+                <p class="category_title">Hợp chất hữu cơ</p>
             </div>
             <div class="category">
                 <img src="./assets/img/1.avif" alt="" class="category_img"/>
-                <p class="category_title">Phytochemicals</p>
+                <p class="category_title">Hóa chất thực vật</p>
             </div>
         </div>
         <div class="container categories_bottom">
@@ -235,16 +235,40 @@
                     <div class="swiper-slide">
                         <div class="review">
                             <p class="review_text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Error nostrum odit ut magni numquam eum aspernatur at iure
-                                explicabo! Provident laudantium commodi veritatis. Lorem
-                                ipsum dolor sit amet consectetur adipisicing elit. Ipsa odit
-                                asperiores atque! Fuga, consequatur excepturi.
+                                Ko phải dân chuyên ko biết sản phẩm tốt hay ko nữa, đóng gói cẩn thận, giao hàng nhanh
                             </p>
                             <div class="review_footer">
                                 <div class="review_user">
-                                    <h3 class="review_user_name">Joh Doe</h3>
-                                    <p class="review_user_designation">Youtuber</p>
+                                    <h3 class="review_user_name">Dang Quoc</h3>
+                                    <p class="review_user_designation">Nguoi Dung</p>
+                                </div>
+                                <h3 class="review_rating">
+                                    <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            fill="currentColor"
+                                            class="w-6 h-6">
+                                        <path
+                                                fill-rule="evenodd"
+                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                                clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>5</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review">
+                            <p class="review_text">
+                                Giao hàng siêu nhanh, đóng gói cẩn thận, mình đã từng mua trước đó nay mua lại. Cám ơn shop
+
+
+                            </p>
+                            <div class="review_footer">
+                                <div class="review_user">
+                                    <h3 class="review_user_name">Hong Tien</h3>
+                                    <p class="review_user_designation">Nguoi Dung</p>
                                 </div>
                                 <h3 class="review_rating">
                                     <svg
@@ -265,46 +289,12 @@
                     <div class="swiper-slide">
                         <div class="review">
                             <p class="review_text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Error nostrum odit ut magni numquam eum aspernatur at iure
-                                explicabo! Provident laudantium commodi veritatis. Lorem
-                                ipsum dolor sit amet consectetur adipisicing elit. Ipsa odit
-                                asperiores atque! Fuga, consequatur excepturi.
+                                rất là nhiều luôn, dùng kh hết , giá rẻ , hạt mịn sạch đẹp , rất oke , lam xà phòng tốt
                             </p>
                             <div class="review_footer">
                                 <div class="review_user">
-                                    <h3 class="review_user_name">Joh Doe</h3>
-                                    <p class="review_user_designation">Youtuber</p>
-                                </div>
-                                <h3 class="review_rating">
-                                    <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24"
-                                            fill="currentColor"
-                                            class="w-6 h-6">
-                                        <path
-                                                fill-rule="evenodd"
-                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                                                clip-rule="evenodd"/>
-                                    </svg>
-                                    <span>4.5</span>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="review">
-                            <p class="review_text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Error nostrum odit ut magni numquam eum aspernatur at iure
-                                explicabo! Provident laudantium commodi veritatis. Lorem
-                                ipsum dolor sit amet consectetur adipisicing elit. Ipsa odit
-                                asperiores atque! Fuga, consequatur excepturi.
-                            </p>
-                            <div class="review_footer">
-                                <div class="review_user">
-                                    <h3 class="review_user_name">Joh Doe</h3>
-                                    <p class="review_user_designation">Youtuber</p>
+                                    <h3 class="review_user_name">Chi Dung</h3>
+                                    <p class="review_user_designation">Nguoi Dung</p>
                                 </div>
                                 <h3 class="review_rating">
                                     <svg

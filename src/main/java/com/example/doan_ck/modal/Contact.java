@@ -4,17 +4,20 @@ import java.io.Serializable;
 
 public class Contact implements Serializable {
     private int id;
-    private int logID;
     private String full_Name;
     private String email;
     private String comment;
+    private String createDate;
 
-    public Contact(int id, int logID, String full_name, String email, String comment){
-        this.logID = logID;
-        this.id =id;
-        this.full_Name = full_name;
+    public Contact() {
+    }
+
+    public Contact(int id, String full_Name, String email, String comment, String createDate) {
+        this.id = id;
+        this.full_Name = full_Name;
         this.email = email;
         this.comment = comment;
+        this.createDate = createDate;
     }
 
     public int getId() {
@@ -23,14 +26,6 @@ public class Contact implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getLogID() {
-        return logID;
-    }
-
-    public void setLogID(int logID) {
-        this.logID = logID;
     }
 
     public String getFull_Name() {
@@ -57,17 +52,22 @@ public class Contact implements Serializable {
         this.comment = comment;
     }
 
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
     @Override
     public String toString() {
         return "Contact{" +
                 "id=" + id +
-                ", logID=" + logID +
                 ", full_Name='" + full_Name + '\'' +
                 ", email='" + email + '\'' +
                 ", comment='" + comment + '\'' +
+                ", createDate='" + createDate + '\'' +
                 '}';
-    }
-
-    public Contact() {
     }
 }
