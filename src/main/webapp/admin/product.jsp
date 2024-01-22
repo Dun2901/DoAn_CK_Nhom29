@@ -24,7 +24,7 @@
     <ul class="side-menu">
         <li><a href="../admin/overview.jsp"><i class='bx bxs-dashboard'></i>Tổng Quan</a></li>
         <li><a href="../admin/product.jsp"><i class='bx bx-store-alt'></i>Sản Phẩm</a></li>
-        <li><a href="../admin/order.jsp"><i class="bx bx-cart"></i></i>Đơn Hàng</a></li>
+        <li><a href="../admin/order.jsp"><i class="bx bx-cart"></i>Đơn Hàng</a></li>
         <li><a href="../admin/users.jsp"><i class='bx bx-group'></i>Tài Khoản</a></li>
     </ul>
     <ul class="side-menu">
@@ -47,13 +47,12 @@
             </div>
         </form>
         <input type="checkbox" id="theme-toggle" hidden>
-        <label for="theme-toggle" class="theme-toggle"></label>
         <a href="#" class="notif">
             <i class='bx bx-bell'></i>
             <span class="count">12</span>
         </a>
-        <a href="users.html" class="profile">
-            <img src="https://icon-library.com/images/admin-login-icon/admin-login-icon-15.jpg">
+        <a href="../admin/users.jsp " class="profile">
+            <img src="https://icon-library.com/images/admin-login-icon/admin-login-icon-15.jpg" alt="">
         </a>
     </nav>
     <main>
@@ -61,11 +60,11 @@
             <div class="left">
                 <h1>Sản Phẩm</h1>
                 <ul class="breadcrumb">
-                    <li><a href="#">
+                    <li><a>
                         ADMIN
                     </a></li>
                     /
-                    <li><a href="#" class="active">Sản Phẩm</a></li>
+                    <li><a href="../admin/product.jsp" class="active">Sản Phẩm</a></li>
                 </ul>
             </div>
         </div>
@@ -142,6 +141,6 @@
         </div>
     </main>
 </div>
-<script src="../js/index.js"></script>
+<script src="../admin/js/index.js"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <%@ page import="com.example.doan_ck.modal.User" %>
 <%@ page import="com.example.doan_ck.modal.Product" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -19,6 +21,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Link Swiper's CSS -->
     <link
             rel="stylesheet"
@@ -130,23 +133,47 @@
 
             if (listTop != null && !listTop.isEmpty()) {
                 for (Product p : listTop) {
+                    String imageUrl = p.getImageUrl();
         %>
-        <div class="selling_item">
-
-
-            <img src="<%=p.getImage().get(0)%>"
-                 alt="" class="selling_item_img"/>
-            <div class="des">
-                <div class="star">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+        <div class="card border-0 rounded-0 shadow m-4" style="width: 18rem;">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <% if (imageUrl != null && !imageUrl.isEmpty()) { %>
+                    <div class="carousel-item active">
+                        <img src="<%= imageUrl %>" alt="product image" class="card-img-top rounded-0"/>
+                    </div>
+                    <% } %>
                 </div>
             </div>
-            <p class="selling_item_title">Gum acacia powder</p>
-            <p class="selling_item_price">450.000₫</p>
+
+            <div class="card-body mt-3 mb-3">
+                <div class="row">
+                    <div class="col-10">
+                        <h4 class="card-title">
+                            <a href="detail?pid=<%= p.getProductID() %>"><%= p.getName() %></a>
+                        </h4>
+                        <p class="card-text">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            (123)
+                        </p>
+                    </div>
+                    <div class="col-2 fs-2">
+                        <i class="bi bi-bookmark-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center text-center g-0">
+                <div class="col-7">
+                    <h5><%= NumberFormat.getCurrencyInstance(new Locale("vi", "VN")).format(p.getOut_price()) %></h5>
+                </div>
+                <div class="col-5">
+                    <a href="#" class="btn btn-dark w-20 p-3 rounded-0 text-warning">ADD TO CART</a>
+                </div>
+            </div>
         </div>
         <%
             }
@@ -154,41 +181,11 @@
             // Display a message or handle the case when the list is empty
         %>
         <div class="no-data-message">
-            No data available at the moment.
+            Vui lòng đăng nhập để xem sản phẩm.
         </div>
         <%
             }
         %>
-        <div class="selling_item">
-            <img src="https://hoachatthinghiem.org/wp-content/uploads/2023/03/Soya-peptone-Himedia-510x510.jpg" alt=""
-                 class="selling_item_img"/>
-            <div class="des">
-                <div class="star">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-            <p class="selling_item_title">Soya Peptone (Himedia)</p>
-            <p class="selling_item_price">1.450.000₫</p>
-        </div>
-        <div class="selling_item">
-            <img src="https://hoachatthinghiem.org/wp-content/uploads/2022/11/Glucose-Agar-510x510.jpg" alt=""
-                 class="selling_item_img"/>
-            <div class="des">
-                <div class="star">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-            <p class="selling_item_title">Glucose Agar (Himedia)</p>
-            <p class="selling_item_price">1.200.000₫</p>
-        </div>
     </div>
 </section>
 <section class="section">

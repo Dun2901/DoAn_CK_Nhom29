@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="sidebar">
-    <a href="overview.html" class="logo">
+    <a href="../admin/overview.jsp" class="logo">
         <div class="logo-name"><span>Admin</span> Chemical</div>
     </a>
     <ul class="side-menu">
@@ -47,12 +47,11 @@
             </div>
         </form>
         <input type="checkbox" id="theme-toggle" hidden>
-        <label for="theme-toggle" class="theme-toggle"></label>
         <a href="#" class="notif">
             <i class='bx bx-bell'></i>
             <span class="count">12</span>
         </a>
-        <a href="users.html" class="profile">
+        <a href="../admin/users.jsp" class="profile">
             <img src="https://icon-library.com/images/admin-login-icon/admin-login-icon-15.jpg">
         </a>
     </nav>
@@ -115,7 +114,7 @@
 
 </div>
 
-<script src="../js/index.js"></script>
+<script src="../admin/js/index.js"></script>
 </body>
 
 </html>

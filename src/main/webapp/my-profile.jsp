@@ -41,7 +41,7 @@
         <div class="col-md-4">
             <!-- User avatar and basic info -->
             <div class="card">
-                <img src="https://via.placeholder.com/150" class="card-img-top" alt="User Avatar">
+                <img src="./assets/img/shopping.jpg" class="card-img-top" alt="User Avatar">
                 <div class="card-body">
                     <h5 class="card-title">
                         <% if (fullName != null) { %>

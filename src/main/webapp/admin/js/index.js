@@ -54,3 +54,26 @@ toggler.addEventListener('change', function () {
         document.body.classList.remove('dark');
     }
 });
+function saveText() {
+    // Lấy nội dung của phần tử có id là 'editableText'
+    var editedText = document.getElementById('editableText').innerText;
+
+    // Gửi yêu cầu HTTP POST (có thể sử dụng fetch hoặc XMLHttpRequest) đến máy chủ
+    // Với nội dung cần lưu trữ, ví dụ: editedText
+    // Đây chỉ là một ví dụ, bạn cần điều chỉnh để phản ánh cấu trúc máy chủ của bạn
+    fetch('/api/saveText', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: editedText }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Xử lý phản hồi từ máy chủ (nếu cần)
+            console.log('Đã lưu thành công:', data);
+        })
+        .catch(error => {
+            console.error('Lỗi khi gửi yêu cầu:', error);
+        });
+}

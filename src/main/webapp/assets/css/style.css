@@ -385,11 +385,12 @@ a {
 
 
 /* selling */
+
 .selling_container {
     width: 100%;
     max-width: 1140px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* Update this line for 4 columns */
     grid-gap: 20px;
 }
 
@@ -417,6 +418,7 @@ a {
     margin: 6px 0;
     font-weight: 600;
 }
+
 
 /* section header */
 .section_header {

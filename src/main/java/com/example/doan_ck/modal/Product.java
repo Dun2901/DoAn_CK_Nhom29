@@ -11,7 +11,7 @@ public class Product implements Serializable {
     private String name;
     private int out_price;
     private int quantity;
-    private List<String> image;
+    private String imageUrl;
     private String description;
     private String vendor;
     private int status;
@@ -20,34 +20,27 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(String productID, String cat_id, String name, int out_price, int quantity, List<String> image, String description, String vendor, int status, Date deleteAt) {
+    public Product(String productID, String cat_id, String name, int out_price, int quantity, String imageUrl, String description, String vendor, int status, Date deleteAt) {
         this.productID = productID;
         this.cat_id = cat_id;
         this.name = name;
         this.out_price = out_price;
         this.quantity = quantity;
-        this.image = image;
+        this.imageUrl = imageUrl;
         this.description = description;
         this.vendor = vendor;
         this.status = status;
         this.deleteAt = deleteAt;
     }
 
-    public Product(String productID, String cat_id, String name, int out_price, int quantity, String description, String vendor, int status, Date deleteAt) {
-        this.productID = productID;
-        this.cat_id = cat_id;
-        this.name = name;
-        this.out_price = out_price;
-        this.quantity = quantity;
-        this.description = description;
-        this.vendor = vendor;
-        this.status = status;
-        this.deleteAt = deleteAt;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public String getKey(){
-        return productID;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
+
     public String getProductID() {
         return productID;
     }
@@ -86,14 +79,6 @@ public class Product implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public List<String> getImage() {
-        return image;
-    }
-
-    public void setImage(List<String> image) {
-        this.image = image;
     }
 
     public String getDescription() {
@@ -136,7 +121,7 @@ public class Product implements Serializable {
                 ", name='" + name + '\'' +
                 ", out_price=" + out_price +
                 ", quantity=" + quantity +
-                ", image=" + image +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", description='" + description + '\'' +
                 ", vendor='" + vendor + '\'' +
                 ", status=" + status +

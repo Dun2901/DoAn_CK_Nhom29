@@ -1,5 +1,7 @@
 package com.example.doan_ck.controller;
 
+
+import com.example.doan_ck.modal.Product;
 import com.example.doan_ck.service.ProductService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,19 +10,25 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "Home", value = "/home")
-public class Home extends HttpServlet {
+@WebServlet(name = "ListProduct", value = "/list-product")
+public class ListProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String idVendor = request.getParameter("idVendor");
         ProductService pro = new ProductService();
+        List<Product> list;
+
+        if (idVendor == null) {
+            list = pro.getAllProducts();
+        } else {
+
+        }
 
 
-        request.setAttribute("listTop", pro.getTopProduct(3));
-        String name = request.getParameter("namespace");
-        if(name!=null)
-            response.sendRedirect("Search?namespace="+name);
-        else  request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.setAttribute("listP", list);
+        request.getRequestDispatcher("list-product.jsp").forward(request, response);
     }
 
     @Override
