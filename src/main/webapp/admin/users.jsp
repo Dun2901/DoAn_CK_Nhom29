@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="sidebar">
-    <a href="overview.html" class="logo">
+    <a href="../admin/overview.html" class="logo">
         <div class="logo-name"><span>Admin</span> Chemical</div>
     </a>
     <ul class="side-menu">
@@ -77,33 +77,37 @@
             <div class="orders">
                 <div class="header">
                     <h4>Họ và Tên:</h4>
-                    <i>Lâm Chí Dũng</i>
-                    <i class="bx bx-edit"></i>
+                    <div class="editableText" contenteditable="true">Lâm Chí Dũng</div>
+                    <button onclick="saveText()"><i class="bx bx-edit"></i></button>
                 </div>
                 <div class="header">
                     <h4>Giới Tính:</h4>
-                    <i>Nam</i>
-                    <i class="bx bx-edit"></i>
+                    <div class="col-md-9 col-sm-9 ">
+                        <select class="col-form-label col-md-3 col-sm-3 form-control" tabindex="0" name="id_cate">
+                            <option>Nam</option>
+                            <option>Nữ</option>
+                            <option>Khác</option>
+                        </select>
                 </div>
                 <div class="header">
                     <h4>Email:</h4>
-                    <i>admin@gmail.com</i>
-                    <i class="bx bx-edit"></i>
+                    <div class="editableText" contenteditable="true">abc@gmail.com</div>
+                    <button onclick="saveText()"><i class="bx bx-edit"></i></button>
                 </div>
                 <div class="header">
                     <h4>Mật Khẩu:</h4>
-                    <i>**********</i>
-                    <i class="bx bx-edit"></i>
+                    <div class="editableText" contenteditable="true">********</div>
+                    <button onclick="saveText()"><i class="bx bx-edit"></i></button>
                 </div>
                 <div class="header">
                     <h4>Số Điện Thoại:</h4>
-                    <i>0123456789</i>
-                    <i class="bx bx-edit"></i>
+                    <div class="editableText" contenteditable="true">0123456789</div>
+                    <button onclick="saveText()"><i class="bx bx-edit"></i></button>
                 </div>
                 <div class="header">
                     <h4>Địa Chỉ:</h4>
-                    <i>Số 123, đường 12, phường 1, quận 2, thành phố Hồ Chí Minh</i>
-                    <i class="bx bx-edit"></i>
+                    <div class="editableText" contenteditable="true">Số 123, đường 12, phường 1, quận 2, thành phố Hồ Chí Minh</div>
+                    <button onclick="saveText()"><i class="bx bx-edit"></i></button>
                 </div>
                 <table>
 

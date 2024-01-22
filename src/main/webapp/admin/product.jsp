@@ -51,7 +51,7 @@
             <i class='bx bx-bell'></i>
             <span class="count">12</span>
         </a>
-        <a href="users.jsp " class="profile">
+        <a href="../admin/users.jsp " class="profile">
             <img src="https://icon-library.com/images/admin-login-icon/admin-login-icon-15.jpg" alt="">
         </a>
     </nav>
@@ -64,7 +64,7 @@
                         ADMIN
                     </a></li>
                     /
-                    <li><a href="product.jsp" class="active">Sản Phẩm</a></li>
+                    <li><a href="../admin/product.jsp" class="active">Sản Phẩm</a></li>
                 </ul>
             </div>
         </div>
@@ -141,6 +141,6 @@
         </div>
     </main>
 </div>
-<script src="../js/index.js"></script>
+<script src="../admin/js/index.js"></script>
 </body>
 </html>
