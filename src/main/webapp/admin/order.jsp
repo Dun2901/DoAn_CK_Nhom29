@@ -19,13 +19,13 @@
 </head>
 <body>
 <div class="sidebar">
-    <a href="overview.html" class="logo">
+    <a href="../admin/overview.jsp" class="logo">
         <div class="logo-name"><span>Admin</span> Chemical</div>
     </a>
     <ul class="side-menu">
         <li><a href="../admin/overview.jsp"><i class='bx bxs-dashboard'></i>Tổng Quan</a></li>
         <li><a href="../admin/product.jsp"><i class='bx bx-store-alt'></i>Sản Phẩm</a></li>
-        <li><a href="../admin/order.jsp"><i class="bx bx-cart"></i></i>Đơn Hàng</a></li>
+        <li><a href="../admin/order.jsp"><i class="bx bx-cart"></i>Đơn Hàng</a></li>
         <li><a href="../admin/users.jsp"><i class='bx bx-group'></i>Tài Khoản</a></li>
     </ul>
     <ul class="side-menu">
@@ -48,7 +48,6 @@
             </div>
         </form>
         <input type="checkbox" id="theme-toggle" hidden>
-        <label for="theme-toggle" class="theme-toggle"></label>
         <a href="#" class="notif">
             <i class='bx bx-bell'></i>
             <span class="count">12</span>
