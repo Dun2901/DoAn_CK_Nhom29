@@ -60,18 +60,18 @@
             <div class="right-side">
                 <div class="topic-text">Hãy gửi cho chúng tôi 1 lời nhắn</div>
                 <p>Nếu bạn có bất kỳ công việc nào từ phía tôi hoặc bất kỳ loại thắc mắc nào liên quan đến hướng dẫn của tôi, bạn có thể gửi tin nhắn cho tôi từ đây. Rất vui được giúp đỡ bạn.</p>
-                <form action="#">
+                <form action="Contact" method="post">
                     <div class="input-box">
-                        <input type="text" placeholder="Họ và tên">
+                        <input name="full_name" type="text" placeholder="Họ và tên">
                     </div>
                     <div class="input-box">
-                        <input type="text" placeholder="Email">
+                        <input name="email" type="email" placeholder="Email">
                     </div>
                     <div class="input-box message-box">
-                        <textarea placeholder="Lời nhắn"></textarea>
+                        <textarea name="comment" placeholder="Lời nhắn"></textarea>
                     </div>
                     <div class="button">
-                        <input type="button" value="Gửi đi" >
+                        <input type="submit" value="Gửi đi" >
                     </div>
                 </form>
             </div>
