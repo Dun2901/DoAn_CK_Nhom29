@@ -94,7 +94,7 @@
                     <div class="editableText" contenteditable="true">abc@gmail.com</div>
                     <button onclick="saveText()"><i class="bx bx-edit"></i></button>
                 </div>
-                <div class="header">
+                <div class="header  ">
                     <h4>Mật Khẩu:</h4>
                     <div class="editableText" contenteditable="true">********</div>
                     <button onclick="saveText()"><i class="bx bx-edit"></i></button>
