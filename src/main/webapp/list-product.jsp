@@ -50,7 +50,7 @@
                 <div class="card-body mt-3 mb-3">
                     <div class="row g-3">
                         <div class="col-10">
-                            <h4 class="card-title">${o.name}</h4>
+                            <h4 class="card-title"><a href="detail?pid=${o.productID}">${o.name}</a></h4>
                             <p class="card-text">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>

@@ -52,7 +52,7 @@
             <span class="count">12</span>
         </a>
         <a href="users.html" class="profile">
-            <img src="https://icon-library.com/images/admin-login-icon/admin-login-icon-15.jpg">
+            <img src=".">
         </a>
     </nav>
 </div>

@@ -1,34 +1,27 @@
 package com.example.doan_ck.controller;
 
 
-import com.example.doan_ck.modal.Product;
-import com.example.doan_ck.service.ProductService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import com.example.doan_ck.service.ProductService;
+import com.example.doan_ck.modal.Product;
 
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "ListProduct", value = "/list-product")
-public class ListProduct extends HttpServlet {
+
+@WebServlet(name = "ProductDetail", value = "/detail")
+public class ProductDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idVendor = request.getParameter("idVendor");
+        String id = request.getParameter("pid");
         ProductService pro = new ProductService();
-        List<Product> list;
+        Product product = pro.getProductByID(id);
 
-        if (idVendor == null) {
-            list = pro.getAllProducts();
-        } else {
-            list = pro.getProductByVendor_ID(idVendor);
-        }
-
-
-        request.setAttribute("listP", list);
-        request.getRequestDispatcher("list-product.jsp").forward(request, response);
+        request.setAttribute("detail", product);
+        request.getRequestDispatcher("product-detail.jsp").forward(request, response);
     }
 
     @Override
