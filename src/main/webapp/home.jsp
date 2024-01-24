@@ -139,8 +139,8 @@
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <% if (imageUrl != null && !imageUrl.isEmpty()) { %>
-                    <div class="carousel-item active">
-                        <img src="<%= imageUrl %>" alt="product image" class="card-img-top rounded-0"/>
+                    <div class="carousel-item active"><%= imageUrl %>
+                        <img src="./assets/img/products" alt="product image" class="card-img-top rounded-0"/>
                     </div>
                     <% } %>
                 </div>
