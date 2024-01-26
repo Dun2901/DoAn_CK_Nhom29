@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 
 public class ProductService {
 
+    private String newID;
+
     public static ProductService getInstance() {
         return new ProductService();
     }
@@ -155,6 +157,15 @@ public class ProductService {
     private static Product getProductByIDTest(String id) {
         // Gọi hàm getProductByID từ lớp chứa hàm đó
         return getProductByID(id);
+    }
+
+
+    public void addProduct(String id, String idCate, String name, String idVendor, String img, String description, int i, int i1, int i2) {
+
+    }
+
+    public String getNewID() {
+        return newID;
     }
 }
 
