@@ -2,6 +2,7 @@ package com.example.doan_ck.service;
 
 import com.example.doan_ck.db.JDBIConnector;
 import com.example.doan_ck.modal.Product;
+import java.util.StringTokenizer;
 import com.example.doan_ck.modal.User;
 
 import java.util.List;
@@ -15,10 +16,10 @@ public class ProductService {
 
     public List<Product> getTopNewProduct(int n) {
         List<Product> pro = JDBIConnector.get().withHandle(handle -> {
-            return handle.createQuery("SELECT productID, cat_id,products.`name`, `description`,out_price,vendors.`name` as`vendor`, products.`status`, `deleteAt`, sum(prices.quanity) as quantity\n" +
+            return handle.createQuery("SELECT productID, cat_id,products.`name`, description,out_price,vendors.`name` as`vendor`, products.`status`, deleteAt, sum(prices.quanity) as quantity\n" +
                             "FROM products INNER JOIN vendors on products.vendor_id = vendors.vendorID INNER JOIN prices on prices.product_id= products.productID\n" +
                             "WHERE products.`status`=0 and vendors.`status`=0 \n" +
-                            "GROUP BY  productID, cat_id,products.`name`, `description`,out_price,`vendor_id`, products.`status`, `deleteAt`\n" +
+                            "GROUP BY  productID, cat_id,products.`name`, description,out_price,`vendor_id`, products.`status`, `deleteAt`\n" +
                             "order by productID DESC\n" +
                             "LIMIT ?;")
                     .bind(0, n)
@@ -30,10 +31,10 @@ public class ProductService {
 
     public static List<Product> getTopProduct(int n) {
         List<Product> pro = JDBIConnector.get().withHandle(handle -> {
-            return handle.createQuery("SELECT productID, cat_id,products.`name`, `description`,out_price,vendors.`name` as`vendor`, products.`status`, `deleteAt`, sum(prices.quanity) as quantity\n" +
+            return handle.createQuery("SELECT productID, cat_id,products.`name`, description,out_price,vendors.`name` as`vendor`, products.`status`, deleteAt, sum(prices.quanity) as quantity\n" +
                             "FROM products INNER JOIN vendors on products.vendor_id = vendors.vendorID INNER JOIN prices on prices.product_id= products.productID\n" +
                             "WHERE products.`status`=0 and vendors.`status`=0  \n" +
-                            "GROUP BY  productID, cat_id,products.`name`, `description`,out_price,`vendor_id`, products.`status`, `deleteAt`\n" +
+                            "GROUP BY  productID, cat_id,products.`name`, description,out_price,`vendor_id`, products.`status`, `deleteAt`\n" +
                             "order by out_price DESC LIMIT ?\n")
                     .bind(0, n)
                     .mapToBean(Product.class)
@@ -97,44 +98,65 @@ public class ProductService {
         });
         return pro;
     }
-    public String getNewID (){
-        List<Product> pro = JDBIConnector.get().withHandle(handle -> {
-            return handle.createQuery("SELECT productID\n" +
-                            "FROM products\n" +
-                            "order by productID DESC\n" +
-                            "LIMIT 1;")
+
+    public static Product getProductByID(String id) {
+        Product product = JDBIConnector.get().withHandle(handle -> {
+            return handle.createQuery("SELECT\n" +
+                            "    p.productID,\n" +
+                            "    p.cat_id,\n" +
+                            "    p.name,\n" +
+                            "    p.description,\n" +
+                            "    p.vendor_id,\n" +
+                            "    p.status AS product_status,\n" +
+                            "    p.deleteAt,\n" +
+                            "    i.url AS image_url,\n" +
+                            "    pr.in_price,\n" +
+                            "    pr.out_price,\n" +
+                            "    pr.quanity,\n" +
+                            "    pr.import_date\n" +
+                            "FROM\n" +
+                            "    products p\n" +
+                            "INNER JOIN\n" +
+                            "    images i ON p.productID = i.product_id\n" +
+                            "LEFT JOIN\n" +
+                            "    prices pr ON p.productID = pr.product_id\n" +
+                            "WHERE\n" +
+                            "    p.productID = ?;\n")
+                    .bind(0, id)
                     .mapToBean(Product.class)
-                    .stream().collect(Collectors.toList());
+                    .findFirst()
+                    .orElse(null); // Trả về null nếu không tìm thấy sản phẩm
         });
-        return  (Integer.parseInt(pro.get(0).getProductID()) +1)+"" ;
+        return product;
     }
-    public void addProduct (String productID, String cat_id, String name, String vendor_id, String image, String discription,  int quantity,int price, int in_price){
-        JDBIConnector.get().withHandle(handle ->
-                handle.createUpdate("INSERT INTO `products` VALUES (?, ?, ?, ?, ?, 0, NULL);")
-                        .bind(0, productID)
-                        .bind(1, cat_id)
-                        .bind(2, name)
-                        .bind(3, discription)
-                        .bind(4, vendor_id)
-                        .execute()
-        );
-        JDBIConnector.get().withHandle(handle ->
-                handle.createUpdate("INSERT INTO `prices` VALUES (?, ?, ?, ?, NOW());")
-                        .bind(0, productID)
-                        .bind(1, in_price)
-                        .bind(2, price)
-                        .bind(3, quantity)
-                        .execute()
-        );
+
+
+//    public static void main(String[] args) {
+//        ProductService pro = new ProductService();
+//        List<Product> list = pro.getAllProducts();
 //
-//        ImagesService.getInstance().insertImage(ImagesService.getInstance().getLastImageID(),productID,name,image);
-    }
+//        for(Product o : list) {
+//            System.out.println(o);
+//        }
+//    }
+
     public static void main(String[] args) {
-        ProductService pro = new ProductService();
-//        String list = pro.addProduct("2","23","phong","23","3");
+        String productIdToTest = "013";
+        Product product = getProductByIDTest(productIdToTest);
 
-//        System.out.println(list);
+        if (product != null) {
+            System.out.println("Product found:");
+            System.out.println(product.toString());
+        } else {
+            System.out.println("Product not found for ID: " + productIdToTest);
+        }
+    }
 
-
+    private static Product getProductByIDTest(String id) {
+        // Gọi hàm getProductByID từ lớp chứa hàm đó
+        return getProductByID(id);
     }
 }
+
+
+

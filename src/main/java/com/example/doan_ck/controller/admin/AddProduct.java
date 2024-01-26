@@ -24,7 +24,6 @@ import java.util.ArrayList;
         maxRequestSize = 1024 * 1024 * 50) // 50MB
 public class AddProduct extends HttpServlet {
     String name = "AddProduct";
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         request.setAttribute("cate", CategoryService.getInstance().listAllCategory());
@@ -32,7 +31,6 @@ public class AddProduct extends HttpServlet {
         request.getRequestDispatcher("addProduct.jsp").forward(request, response);
     }
 
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         ProductService pro = new ProductService();
