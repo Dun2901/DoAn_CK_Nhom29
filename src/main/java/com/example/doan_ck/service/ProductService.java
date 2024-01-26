@@ -97,13 +97,44 @@ public class ProductService {
         });
         return pro;
     }
-
+    public String getNewID (){
+        List<Product> pro = JDBIConnector.get().withHandle(handle -> {
+            return handle.createQuery("SELECT productID\n" +
+                            "FROM products\n" +
+                            "order by productID DESC\n" +
+                            "LIMIT 1;")
+                    .mapToBean(Product.class)
+                    .stream().collect(Collectors.toList());
+        });
+        return  (Integer.parseInt(pro.get(0).getProductID()) +1)+"" ;
+    }
+    public void addProduct (String productID, String cat_id, String name, String vendor_id, String image, String discription,  int quantity,int price, int in_price){
+        JDBIConnector.get().withHandle(handle ->
+                handle.createUpdate("INSERT INTO `products` VALUES (?, ?, ?, ?, ?, 0, NULL);")
+                        .bind(0, productID)
+                        .bind(1, cat_id)
+                        .bind(2, name)
+                        .bind(3, discription)
+                        .bind(4, vendor_id)
+                        .execute()
+        );
+        JDBIConnector.get().withHandle(handle ->
+                handle.createUpdate("INSERT INTO `prices` VALUES (?, ?, ?, ?, NOW());")
+                        .bind(0, productID)
+                        .bind(1, in_price)
+                        .bind(2, price)
+                        .bind(3, quantity)
+                        .execute()
+        );
+//
+//        ImagesService.getInstance().insertImage(ImagesService.getInstance().getLastImageID(),productID,name,image);
+    }
     public static void main(String[] args) {
         ProductService pro = new ProductService();
-        List<Product> list = pro.getAllProducts();
+//        String list = pro.addProduct("2","23","phong","23","3");
 
-        for(Product o : list) {
-            System.out.println(o);
-        }
+//        System.out.println(list);
+
+
     }
 }
