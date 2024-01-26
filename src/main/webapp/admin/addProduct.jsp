@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.example.doan_ck.modal.Category" %>
+<%@ page import="com.example.doan_ck.modal.Vendor" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 22/01/2024
@@ -96,53 +98,52 @@
                                                 <div class="item form-group">
                                                     <labelgit class="col-form-label col-md-3 col-sm-3 label-align">Hãng Sản Xuất:</labelgit>
                                                     <div class="col-md-9 col-sm-9 ">
+                                                        <%List<Category> cate = (List<Category>) request.getAttribute("cate");%>
                                                         <select class="col-form-label col-md-3 col-sm-3 form-control" tabindex="0" name="id_cate">
-                                                            <option>DUCHEFA HÀ LAN</option>
-                                                            <option>BOSF TRUNG QUỐC</option>
-                                                            <option>MERCK ĐỨC</option
-                                                            <option>WAKO NHẬT BẢN</option>
-                                                            <option>ACROS ORGANICS</option>>
-                                                            <option>BIOBASIC CANADA </option>
-                                                            <option>HIMEDIA LABS </option>
+                                                            <option></option>
+                                                            <% for(Category c : cate){%>
+                                                            <option value="<%=c.getCategoryID()%>" ><%=c.getName()%></option>
+                                                            <%}%>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="item form-group">
-                                                    <label label class="col-form-label col-md-3 col-sm-3 label-align">Loại:</label>
+                                                <div class="form-group row">
+                                                    <label class="control-label col-md-3 col-sm-3 label-align">Loại</label>
                                                     <div class="col-md-9 col-sm-9 ">
+                                                        <%List<Vendor> vendor = (List<Vendor>) request.getAttribute("vendor");%>
                                                         <select class="col-form-label col-md-3 col-sm-3 form-control" tabindex="0" name="id_vendor">
-                                                            <option>Hợp Chất Hữu Cơ</option>
-                                                            <option>Hợp Chất Vô Cơ</option>
-                                                            <option>Hợp Chất Sinh Học Và Y Học</option>
-                                                            <option>Hợp Chất Công Nghiệp</option>
+                                                            <option></option>
+                                                            <% for(Vendor c : vendor){%>
+                                                            <option value="<%=c.getVendorID()%>" ><%=c.getName()%></option>
+                                                            <%}%>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
-                                                    <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Số Lượng:</label>
+                                                    <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Số Lượng</label>
                                                     <div class="col-md-6 col-sm-6 ">
                                                         <input for="middle-name" class="form-control" type="number" name="quantity" value="">
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
-                                                    <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Giá:</label>
+                                                    <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Giá</label>
                                                     <div class="col-md-6 col-sm-6 ">
                                                         <input for="middle-name" class="form-control" type="number" name="price" value="">
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
-                                                    <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Giá Gốc:</label>
+                                                    <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Giá gốc</label>
                                                     <div class="col-md-6 col-sm-6 ">
                                                         <input id="middle-name" class="form-control" type="number" name="in_price" value="">
                                                     </div>
                                                 </div>
                                                 <div class="item form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 label-align">Mô Tả:</label>
+                                                    <label class="control-label col-md-3 col-sm-3 label-align">Mô Tả</label>
                                                     <div class="col-md-9 col-sm-9 ">
                                                         <textarea id="editor" class="resizable_textarea form-control" style="height: 300px;" name="discription" placeholder="..."></textarea>                                    </div>
                                                 </div>
                                                 <div class="item form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 label-align">Chọn Ảnh:</label>
+                                                    <label class="control-label col-md-3 col-sm-3 label-align">Chọn ảnh</label>
                                                     <div class="col-md-9 col-sm-9 ">
                                                         <input type="file"id="avatar" name="img" accept="image/png, image/jpeg">
                                                     </div>
@@ -151,7 +152,7 @@
                                                 <div class="item form-group">
                                                     <div class="col-md-6 col-sm-6 offset-md-3">
                                                         <button class="btn btn-primary" type="reset">Huỷ</button>
-                                                        <button href="../admin/product.jsp"  type="submit" class="btn btn-success" ><a href="../admin/product.jsp">Thêm</a></button>
+                                                        <button type="submit" class="btn btn-success" ><a>Thêm</a></button>
                                                     </div>
                                                 </div>
 

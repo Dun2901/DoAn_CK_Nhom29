@@ -16,10 +16,10 @@ public class ProductService {
 
     public List<Product> getTopNewProduct(int n) {
         List<Product> pro = JDBIConnector.get().withHandle(handle -> {
-            return handle.createQuery("SELECT productID, cat_id,products.`name`, `description`,out_price,vendors.`name` as`vendor`, products.`status`, `deleteAt`, sum(prices.quanity) as quantity\n" +
+            return handle.createQuery("SELECT productID, cat_id,products.`name`, description,out_price,vendors.`name` as`vendor`, products.`status`, deleteAt, sum(prices.quanity) as quantity\n" +
                             "FROM products INNER JOIN vendors on products.vendor_id = vendors.vendorID INNER JOIN prices on prices.product_id= products.productID\n" +
                             "WHERE products.`status`=0 and vendors.`status`=0 \n" +
-                            "GROUP BY  productID, cat_id,products.`name`, `description`,out_price,`vendor_id`, products.`status`, `deleteAt`\n" +
+                            "GROUP BY  productID, cat_id,products.`name`, description,out_price,`vendor_id`, products.`status`, `deleteAt`\n" +
                             "order by productID DESC\n" +
                             "LIMIT ?;")
                     .bind(0, n)
@@ -31,10 +31,10 @@ public class ProductService {
 
     public static List<Product> getTopProduct(int n) {
         List<Product> pro = JDBIConnector.get().withHandle(handle -> {
-            return handle.createQuery("SELECT productID, cat_id,products.`name`, `description`,out_price,vendors.`name` as`vendor`, products.`status`, `deleteAt`, sum(prices.quanity) as quantity\n" +
+            return handle.createQuery("SELECT productID, cat_id,products.`name`, description,out_price,vendors.`name` as`vendor`, products.`status`, deleteAt, sum(prices.quanity) as quantity\n" +
                             "FROM products INNER JOIN vendors on products.vendor_id = vendors.vendorID INNER JOIN prices on prices.product_id= products.productID\n" +
                             "WHERE products.`status`=0 and vendors.`status`=0  \n" +
-                            "GROUP BY  productID, cat_id,products.`name`, `description`,out_price,`vendor_id`, products.`status`, `deleteAt`\n" +
+                            "GROUP BY  productID, cat_id,products.`name`, description,out_price,`vendor_id`, products.`status`, `deleteAt`\n" +
                             "order by out_price DESC LIMIT ?\n")
                     .bind(0, n)
                     .mapToBean(Product.class)
@@ -157,3 +157,6 @@ public class ProductService {
         return getProductByID(id);
     }
 }
+
+
+

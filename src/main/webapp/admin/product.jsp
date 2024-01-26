@@ -1,4 +1,7 @@
-<%--
+<%@ page import="com.example.doan_ck.modal.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 22/01/2024
@@ -73,7 +76,7 @@
                 <div class="header">
                     <i class='bx bx-receipt'></i>
                     <h3>Danh Sách Sản Phẩm</h3>
-                    <a href="../admin/addProduct.jsp"><i class='bx bx-plus'></i></a>
+                    <a href="../admin/new_product"><i class='bx bx-plus'></i></a>
                     <i class='bx bx-filter'></i>
                     <i class='bx bx-search'></i>
 
@@ -89,6 +92,7 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     <tr>
                         <td>
                             <img src="https://hoachatthinghiem.org/wp-content/uploads/2023/01/Ethidium-Bromide-95-Cas-1239-45-8.jpg">
@@ -100,39 +104,22 @@
                         <td><button> <i class='bx bx-trash'></i></button>
                         <button><i class='bx bx-pen'></i></button></td>
                     </tr>
+                    <%
+                        List<Product> list = (List<Product>) request.getAttribute("proList");
+                        for (Product p : list) {
+                    %>
                     <tr>
                         <td>
-                            <img src="https://hoachatthinghiem.org/wp-content/uploads/2023/02/Glutaraldehyde-25-biobasic-scaled-510x510.jpg">
-                            <p>Glutaraldehyde 25% solution (Biobasic, Cas 111-30-8)</p>
+                            <img src=".<%=p.getImageUrl()%>">
+                            <p><%=p.getName()%></p>
                         </td>
-                        <td>Biobasic</td>
-                        <td>2.100.000₫</td>
-                        <td>11</td>
+                        <td class="text-center"><%=p.getVendor_id()%></td>
+                        <td><%=NumberFormat.getCurrencyInstance(new Locale("vi", "VN")).format(p.getOut_price())%></td>
+                        <td class="text-center"><%=p.getStatus()%></td>
                         <td><button> <i class='bx bx-trash'></i></button>
                             <button><i class='bx bx-pen'></i></button></td>
                     </tr>
-                    <tr>
-                        <td>
-                            <img src="https://hoachatthinghiem.org/wp-content/uploads/2021/01/Zeatin-ZB0747-510x510.jpg">
-                            <p>Zeatin (ZB0747, Biobasic)</p>
-                        </td>
-                        <td>Biobasic</td>
-                        <td>5.200.000₫</td>
-                        <td>13</td>
-                        <td><button> <i class='bx bx-trash'></i></button>
-                            <button><i class='bx bx-pen'></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="https://hoachatthinghiem.org/wp-content/uploads/2022/04/TDZ-Thidiazuron-1G-BOSF.jpg">
-                            <p>Thidiazuron >98% (TDZ, TQ, Cas 51707-55-2)</p>
-                        </td>
-                        <td>BOSF TQ</td>
-                        <td>550.000₫ – 2.800.000₫</td>
-                        <td>22</td>
-                        <td><button> <i class='bx bx-trash'></i></button>
-                            <button><i class='bx bx-pen'></i></button></td>
-                    </tr>
+                    <%}%>
                     </tbody>
                 </table>
             </div>

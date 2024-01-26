@@ -16,8 +16,17 @@ public class Product implements Serializable {
     private String vendor;
     private int status;
     private Date deleteAt;
+    private String vendor_id;
 
     public Product() {
+    }
+
+    public String getVendor_id() {
+        return vendor_id;
+    }
+
+    public void setVendor_id(String vendor_id) {
+        this.vendor_id = vendor_id;
     }
 
     public Product(String productID, String cat_id, String name, int out_price, int quantity, String imageUrl, String description, String vendor, int status, Date deleteAt) {
